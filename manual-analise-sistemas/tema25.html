@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>25. Integração dos modelos e apresentação do projeto — Manual de Análise de Sistemas</title>
+<link rel="stylesheet" href="css/estilo.css"></head><body>
+<div class="layout"><details class="menu" open><summary><a class="marca" href="index.html">Manual de Análise de Sistemas</a></summary><nav aria-label="Temas"><h3>Fundamentos</h3><ol><li><a href="tema01.html"><span class="n">1</span><span>Introdução à análise de sistemas</span></a></li><li><a href="tema02.html"><span class="n">2</span><span>Sistemas, subsistemas, ambiente e fronteiras</span></a></li><li><a href="tema03.html"><span class="n">3</span><span>Análise de sistemas e informatização</span></a></li></ol><h3>Levantamento e requisitos</h3><ol><li><a href="tema04.html"><span class="n">4</span><span>Técnicas de recolha e análise de informação</span></a></li><li><a href="tema05.html"><span class="n">5</span><span>Requisitos de sistemas de informação</span></a></li></ol><h3>Desenvolvimento de software</h3><ol><li><a href="tema06.html"><span class="n">6</span><span>Ciclo de vida do software</span></a></li><li><a href="tema07.html"><span class="n">7</span><span>Modelos de desenvolvimento de software</span></a></li></ol><h3>Modelação de dados</h3><ol><li><a href="tema08.html"><span class="n">8</span><span>Introdução à modelação de dados</span></a></li><li><a href="tema09.html"><span class="n">9</span><span>Entidades e tipos de atributos</span></a></li><li><a href="tema10.html"><span class="n">10</span><span>Relacionamentos entre entidades</span></a></li><li><a href="tema11.html"><span class="n">11</span><span>Modelo Entidade-Relacionamento</span></a></li><li><a href="tema12.html"><span class="n">12</span><span>Modelo Entidade-Relacionamento: consolidação</span></a></li><li><a href="tema13.html"><span class="n">13</span><span>Do modelo conceptual ao modelo relacional</span></a></li><li><a href="tema14.html"><span class="n">14</span><span>Modelo físico: chaves primárias e candidatas</span></a></li><li><a href="tema15.html"><span class="n">15</span><span>Chaves estrangeiras</span></a></li><li><a href="tema16.html"><span class="n">16</span><span>Integridade de dados</span></a></li></ol><h3>UML e modelação do comportamento</h3><ol><li><a href="tema17.html"><span class="n">17</span><span>Introdução à UML</span></a></li><li><a href="tema18.html"><span class="n">18</span><span>Fronteiras do sistema, atores e casos de uso</span></a></li><li><a href="tema19.html"><span class="n">19</span><span>Diagrama de casos de uso: relações</span></a></li><li><a href="tema20.html"><span class="n">20</span><span>Diagramas de Fluxo de Dados (DFD)</span></a></li><li><a href="tema21.html"><span class="n">21</span><span>DFD de nível 1</span></a></li><li><a href="tema22.html"><span class="n">22</span><span>Diagramas de atividade</span></a></li><li><a href="tema23.html"><span class="n">23</span><span>Diagramas de estados e de sequência</span></a></li></ol><h3>Implementação e projeto final</h3><ol><li><a href="tema24.html"><span class="n">24</span><span>Representação da implementação</span></a></li><li><a href="tema25.html" aria-current="page"><span class="n">25</span><span>Integração dos modelos e apresentação do projeto</span></a></li></ol></nav></details>
+<main><article>
+<header class="cab"><p class="tema">Tema 25 · Implementação e projeto final</p><h1>Integração dos modelos e apresentação do projeto</h1><p class="sub">Integração dos modelos e apresentação do projeto de análise de sistemas</p></header>
+
+<p>Os modelos construídos ao longo do manual descrevem o <strong>mesmo sistema</strong> segundo perspetivas diferentes. O trabalho final consiste em reuni-los num <strong>dossier</strong> coerente e em apresentá-los a quem os vai avaliar.</p>
+<figure><img src="imagens/integracao.svg" alt="Percurso do projeto de análise de sistemas." loading="lazy"><figcaption>Figura 25.1 — Percurso do projeto de análise de sistemas.</figcaption></figure>
+
+<h2>Estrutura do dossier</h2>
+<ol>
+<li><strong>Introdução</strong>: descrição da organização, do problema e dos objetivos.</li>
+<li><strong>Levantamento</strong>: técnicas usadas, notas da entrevista, problemas e necessidades.</li>
+<li><strong>Requisitos</strong>: lista de requisitos funcionais e não funcionais.</li>
+<li><strong>Modelo de dados</strong>: DER, descrição das entidades, modelo relacional, chaves e regras de integridade.</li>
+<li><strong>Modelos de funcionamento</strong>: casos de uso, DFD de contexto e nível 1, diagramas de atividade, estados e sequência.</li>
+<li><strong>Modelos de implementação</strong>: diagramas de classes e de componentes.</li>
+<li><strong>Conclusão</strong>: limitações e possíveis melhorias.</li>
+</ol>
+
+<h2>Verificação de coerência</h2>
+<table>
+<tr><th>Verificar</th><th>Pergunta</th></tr>
+<tr><td>Requisitos ↔ casos de uso</td><td>Cada requisito funcional está coberto por um caso de uso?</td></tr>
+<tr><td>Casos de uso ↔ DFD</td><td>Os processos do DFD correspondem às funcionalidades dos casos de uso?</td></tr>
+<tr><td>DER ↔ modelo relacional</td><td>Todas as entidades têm tabela? Os N:M foram resolvidos?</td></tr>
+<tr><td>DER ↔ classes</td><td>Cada entidade tem classe? As multiplicidades coincidem com as cardinalidades?</td></tr>
+<tr><td>DFD ↔ DER</td><td>Os armazéns do DFD correspondem a entidades?</td></tr>
+<tr><td>Nomes</td><td>O mesmo conceito tem o mesmo nome em todos os modelos?</td></tr>
+</table>
+
+<h2>Apresentar e defender</h2>
+<ul>
+<li>Comece pelo <strong>problema</strong> e pelo cliente, não pelos diagramas.</li>
+<li>Percorra os modelos por ordem lógica e explique <strong>porquê</strong> cada decisão foi tomada.</li>
+<li>Mostre a <strong>ligação</strong> entre os modelos (como um requisito chega a uma tabela).</li>
+<li>Prepare respostas para perguntas como: «Porque escolheu esta fronteira?», «Porque separou X em duas entidades?», «O que mudaria se o cliente pedisse Y?».</li>
+</ul>
+
+<section class="atividade"><h2>Atividade</h2><p class="at-titulo">Finalização do dossier, apresentação dos diagramas e defesa das opções tomadas</p>
+
+<ol>
+<li>Reúna todos os modelos do projeto num <strong>dossier</strong> segundo a estrutura proposta.</li>
+<li>Aplique a <strong>tabela de verificação de coerência</strong> e corrija as incoerências encontradas.</li>
+<li>Prepare uma <strong>apresentação de 10 minutos</strong> com os principais diagramas.</li>
+<li>Defenda, perante a turma, três opções de modelação, indicando alternativas consideradas.</li>
+</ol>
+
+<details class="resolucao"><summary>Ver proposta de resolução</summary><div class="dentro">
+<p><strong>Proposta de guião de 10 minutos:</strong></p>
+<table>
+<tr><th>Tempo</th><th>Conteúdo</th></tr>
+<tr><td>1 min</td><td>Organização, problema e objetivos.</td></tr>
+<tr><td>2 min</td><td>Requisitos principais e fronteira do sistema (casos de uso e DFD de contexto).</td></tr>
+<tr><td>3 min</td><td>Modelo de dados: DER, tabelas, chaves e integridade.</td></tr>
+<tr><td>2 min</td><td>Comportamento: DFD de nível 1, atividade, estados e sequência.</td></tr>
+<tr><td>1 min</td><td>Implementação: classes e componentes.</td></tr>
+<tr><td>1 min</td><td>Conclusões e melhorias.</td></tr>
+</table>
+<p><strong>Exemplo de opção a defender:</strong> «Criámos a entidade Exemplar separada de Livro porque a biblioteca pode ter várias cópias do mesmo título e é cada cópia que se empresta; assim, o estado (disponível, emprestado, danificado) fica associado ao exemplar e não ao livro. A alternativa, guardar o número de cópias no Livro, impediria saber que cópia está em atraso.»</p>
+</div></details>
+</section>
+<section class="resumo"><h2>Em resumo</h2><ul><li>Os modelos descrevem o mesmo sistema segundo perspetivas diferentes e têm de ser coerentes.</li><li>O dossier organiza levantamento, requisitos, dados, comportamento e implementação.</li><li>A defesa exige explicar o porquê das opções, não apenas mostrar diagramas.</li></ul></section>
+<nav class="pn" aria-label="Navegação entre temas"><a href="tema24.html"><small>Tema anterior</small>24. Representação da implementação</a><a href="index.html" style="text-align:right"><small>Fim</small>Voltar ao índice</a></nav>
+</article></main></div><script>
+(function(){var m=document.querySelector('details.menu');if(m&&window.innerWidth<900){m.removeAttribute('open');}
+var a=document.querySelector('.menu a[aria-current=page]');if(a&&window.innerWidth>=900){a.scrollIntoView({block:'center'});}})();
+</script></body></html>

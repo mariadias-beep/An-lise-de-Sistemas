@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>9. Entidades e tipos de atributos — Manual de Análise de Sistemas</title>
+<link rel="stylesheet" href="css/estilo.css"></head><body>
+<div class="layout"><details class="menu" open><summary><a class="marca" href="index.html">Manual de Análise de Sistemas</a></summary><nav aria-label="Temas"><h3>Fundamentos</h3><ol><li><a href="tema01.html"><span class="n">1</span><span>Introdução à análise de sistemas</span></a></li><li><a href="tema02.html"><span class="n">2</span><span>Sistemas, subsistemas, ambiente e fronteiras</span></a></li><li><a href="tema03.html"><span class="n">3</span><span>Análise de sistemas e informatização</span></a></li></ol><h3>Levantamento e requisitos</h3><ol><li><a href="tema04.html"><span class="n">4</span><span>Técnicas de recolha e análise de informação</span></a></li><li><a href="tema05.html"><span class="n">5</span><span>Requisitos de sistemas de informação</span></a></li></ol><h3>Desenvolvimento de software</h3><ol><li><a href="tema06.html"><span class="n">6</span><span>Ciclo de vida do software</span></a></li><li><a href="tema07.html"><span class="n">7</span><span>Modelos de desenvolvimento de software</span></a></li></ol><h3>Modelação de dados</h3><ol><li><a href="tema08.html"><span class="n">8</span><span>Introdução à modelação de dados</span></a></li><li><a href="tema09.html" aria-current="page"><span class="n">9</span><span>Entidades e tipos de atributos</span></a></li><li><a href="tema10.html"><span class="n">10</span><span>Relacionamentos entre entidades</span></a></li><li><a href="tema11.html"><span class="n">11</span><span>Modelo Entidade-Relacionamento</span></a></li><li><a href="tema12.html"><span class="n">12</span><span>Modelo Entidade-Relacionamento: consolidação</span></a></li><li><a href="tema13.html"><span class="n">13</span><span>Do modelo conceptual ao modelo relacional</span></a></li><li><a href="tema14.html"><span class="n">14</span><span>Modelo físico: chaves primárias e candidatas</span></a></li><li><a href="tema15.html"><span class="n">15</span><span>Chaves estrangeiras</span></a></li><li><a href="tema16.html"><span class="n">16</span><span>Integridade de dados</span></a></li></ol><h3>UML e modelação do comportamento</h3><ol><li><a href="tema17.html"><span class="n">17</span><span>Introdução à UML</span></a></li><li><a href="tema18.html"><span class="n">18</span><span>Fronteiras do sistema, atores e casos de uso</span></a></li><li><a href="tema19.html"><span class="n">19</span><span>Diagrama de casos de uso: relações</span></a></li><li><a href="tema20.html"><span class="n">20</span><span>Diagramas de Fluxo de Dados (DFD)</span></a></li><li><a href="tema21.html"><span class="n">21</span><span>DFD de nível 1</span></a></li><li><a href="tema22.html"><span class="n">22</span><span>Diagramas de atividade</span></a></li><li><a href="tema23.html"><span class="n">23</span><span>Diagramas de estados e de sequência</span></a></li></ol><h3>Implementação e projeto final</h3><ol><li><a href="tema24.html"><span class="n">24</span><span>Representação da implementação</span></a></li><li><a href="tema25.html"><span class="n">25</span><span>Integração dos modelos e apresentação do projeto</span></a></li></ol></nav></details>
+<main><article>
+<header class="cab"><p class="tema">Tema 9 · Modelação de dados</p><h1>Entidades e tipos de atributos</h1><p class="sub">Atributos simples, compostos, obrigatórios, opcionais e derivados</p></header>
+
+<p>Uma entidade só fica bem definida quando conhecemos todos os seus atributos e as regras de cada um. Nem todos os atributos são iguais.</p>
+<figure><img src="imagens/atributos.svg" alt="Tipos de atributos: identificador, simples, composto, opcional e derivado." loading="lazy"><figcaption>Figura 9.1 — Tipos de atributos: identificador, simples, composto, opcional e derivado.</figcaption></figure>
+
+<table>
+<tr><th>Tipo</th><th>Significado</th><th>Exemplo</th></tr>
+<tr><td>Simples</td><td>Não se divide em partes com significado próprio.</td><td>nome, preço</td></tr>
+<tr><td>Composto</td><td>Pode ser dividido em partes mais pequenas.</td><td>morada (rua, código postal, localidade)</td></tr>
+<tr><td>Obrigatório</td><td>Tem de ter sempre valor.</td><td>nº de aluno, nome</td></tr>
+<tr><td>Opcional</td><td>Pode não ter valor.</td><td>telemóvel, segundo nome</td></tr>
+<tr><td>Derivado</td><td>Calcula-se a partir de outro atributo; normalmente não se guarda.</td><td>idade (a partir da data de nascimento)</td></tr>
+<tr><td>Identificador</td><td>Distingue cada ocorrência da entidade.</td><td>nº de leitor, ISBN</td></tr>
+</table>
+
+<p>Guardar a <em>idade</em> obrigaria a atualizá-la todos os dias; guardar a <em>data de nascimento</em> permite calcular a idade sempre que for precisa. É por isso que os atributos derivados normalmente ficam de fora do modelo físico.</p>
+
+<h2>Descrição de uma entidade</h2>
+<p>O analista documenta cada entidade numa tabela com o nome do atributo, o tipo, se é obrigatório, a sua classificação e uma breve descrição.</p>
+<table>
+<tr><th colspan="5">Entidade: Aluno</th></tr>
+<tr><th>Atributo</th><th>Tipo de dados</th><th>Obrigatório</th><th>Classificação</th><th>Descrição</th></tr>
+<tr><td><u>nºAluno</u></td><td>Inteiro</td><td>Sim</td><td>Simples, identificador</td><td>Número único atribuído na matrícula</td></tr>
+<tr><td>nome</td><td>Texto (80)</td><td>Sim</td><td>Simples</td><td>Nome completo</td></tr>
+<tr><td>telemóvel</td><td>Texto (9)</td><td>Não</td><td>Simples</td><td>Contacto do aluno ou do encarregado</td></tr>
+</table>
+
+<section class="atividade"><h2>Atividade</h2><p class="at-titulo">Construir a descrição das entidades do projeto</p>
+
+<p>Construa a descrição das entidades do projeto da biblioteca: <strong>Leitor</strong>, <strong>Livro</strong> e <strong>Empréstimo</strong>. Em cada tabela, indique tipo de dados, se o atributo é obrigatório, a sua classificação (simples, composto ou derivado) e uma descrição. Identifique pelo menos um atributo opcional e um derivado.</p>
+
+<details class="resolucao"><summary>Ver proposta de resolução</summary><div class="dentro">
+<table>
+<tr><th colspan="5">Entidade: Leitor</th></tr>
+<tr><th>Atributo</th><th>Tipo</th><th>Obrig.</th><th>Classificação</th><th>Descrição</th></tr>
+<tr><td><u>nºLeitor</u></td><td>Inteiro</td><td>Sim</td><td>Simples, identificador</td><td>Número do cartão de leitor</td></tr>
+<tr><td>nome</td><td>Texto (80)</td><td>Sim</td><td>Simples</td><td>Nome completo</td></tr>
+<tr><td>dataNascimento</td><td>Data</td><td>Sim</td><td>Simples</td><td>Data de nascimento</td></tr>
+<tr><td>idade</td><td>—</td><td>—</td><td>Derivado</td><td>Calculada a partir da data de nascimento</td></tr>
+<tr><td>morada</td><td>—</td><td>Não</td><td>Composto</td><td>Rua, código postal e localidade</td></tr>
+<tr><td>telemóvel</td><td>Texto (9)</td><td>Não</td><td>Simples</td><td>Opcional</td></tr>
+<tr><td>dataInscrição</td><td>Data</td><td>Sim</td><td>Simples</td><td>Data de adesão à biblioteca</td></tr>
+</table>
+<table>
+<tr><th colspan="5">Entidade: Livro</th></tr>
+<tr><th>Atributo</th><th>Tipo</th><th>Obrig.</th><th>Classificação</th><th>Descrição</th></tr>
+<tr><td><u>ISBN</u></td><td>Texto (13)</td><td>Sim</td><td>Simples, identificador</td><td>Código internacional do livro</td></tr>
+<tr><td>título</td><td>Texto (150)</td><td>Sim</td><td>Simples</td><td>Título da obra</td></tr>
+<tr><td>editora</td><td>Texto (60)</td><td>Sim</td><td>Simples</td><td>Editora</td></tr>
+<tr><td>anoEdição</td><td>Inteiro</td><td>Não</td><td>Simples</td><td>Ano da edição</td></tr>
+</table>
+<table>
+<tr><th colspan="5">Entidade: Empréstimo</th></tr>
+<tr><th>Atributo</th><th>Tipo</th><th>Obrig.</th><th>Classificação</th><th>Descrição</th></tr>
+<tr><td><u>nºEmpréstimo</u></td><td>Inteiro</td><td>Sim</td><td>Simples, identificador</td><td>Número sequencial</td></tr>
+<tr><td>dataEmpréstimo</td><td>Data</td><td>Sim</td><td>Simples</td><td>Dia em que o livro sai</td></tr>
+<tr><td>dataPrevistaDevolução</td><td>Data</td><td>Sim</td><td>Simples</td><td>Dia limite para devolver</td></tr>
+<tr><td>dataDevolução</td><td>Data</td><td>Não</td><td>Simples</td><td>Preenchida só quando o livro é devolvido</td></tr>
+<tr><td>diasAtraso</td><td>—</td><td>—</td><td>Derivado</td><td>Diferença entre devolução e data prevista</td></tr>
+</table>
+</div></details>
+</section>
+<section class="resumo"><h2>Em resumo</h2><ul><li>Os atributos podem ser simples ou compostos, obrigatórios ou opcionais, e derivados.</li><li>Os atributos derivados calculam-se a partir de outros e normalmente não se guardam.</li><li>Cada entidade tem um atributo identificador.</li><li>A descrição das entidades documenta o tipo, a obrigatoriedade e o significado de cada atributo.</li></ul></section>
+<nav class="pn" aria-label="Navegação entre temas"><a href="tema08.html"><small>Tema anterior</small>8. Introdução à modelação de dados</a><a href="tema10.html" style="text-align:right"><small>Tema seguinte</small>10. Relacionamentos entre entidades</a></nav>
+</article></main></div><script>
+(function(){var m=document.querySelector('details.menu');if(m&&window.innerWidth<900){m.removeAttribute('open');}
+var a=document.querySelector('.menu a[aria-current=page]');if(a&&window.innerWidth>=900){a.scrollIntoView({block:'center'});}})();
+</script></body></html>

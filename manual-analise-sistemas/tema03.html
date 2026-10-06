@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3. Análise de sistemas e informatização — Manual de Análise de Sistemas</title>
+<link rel="stylesheet" href="css/estilo.css"></head><body>
+<div class="layout"><details class="menu" open><summary><a class="marca" href="index.html">Manual de Análise de Sistemas</a></summary><nav aria-label="Temas"><h3>Fundamentos</h3><ol><li><a href="tema01.html"><span class="n">1</span><span>Introdução à análise de sistemas</span></a></li><li><a href="tema02.html"><span class="n">2</span><span>Sistemas, subsistemas, ambiente e fronteiras</span></a></li><li><a href="tema03.html" aria-current="page"><span class="n">3</span><span>Análise de sistemas e informatização</span></a></li></ol><h3>Levantamento e requisitos</h3><ol><li><a href="tema04.html"><span class="n">4</span><span>Técnicas de recolha e análise de informação</span></a></li><li><a href="tema05.html"><span class="n">5</span><span>Requisitos de sistemas de informação</span></a></li></ol><h3>Desenvolvimento de software</h3><ol><li><a href="tema06.html"><span class="n">6</span><span>Ciclo de vida do software</span></a></li><li><a href="tema07.html"><span class="n">7</span><span>Modelos de desenvolvimento de software</span></a></li></ol><h3>Modelação de dados</h3><ol><li><a href="tema08.html"><span class="n">8</span><span>Introdução à modelação de dados</span></a></li><li><a href="tema09.html"><span class="n">9</span><span>Entidades e tipos de atributos</span></a></li><li><a href="tema10.html"><span class="n">10</span><span>Relacionamentos entre entidades</span></a></li><li><a href="tema11.html"><span class="n">11</span><span>Modelo Entidade-Relacionamento</span></a></li><li><a href="tema12.html"><span class="n">12</span><span>Modelo Entidade-Relacionamento: consolidação</span></a></li><li><a href="tema13.html"><span class="n">13</span><span>Do modelo conceptual ao modelo relacional</span></a></li><li><a href="tema14.html"><span class="n">14</span><span>Modelo físico: chaves primárias e candidatas</span></a></li><li><a href="tema15.html"><span class="n">15</span><span>Chaves estrangeiras</span></a></li><li><a href="tema16.html"><span class="n">16</span><span>Integridade de dados</span></a></li></ol><h3>UML e modelação do comportamento</h3><ol><li><a href="tema17.html"><span class="n">17</span><span>Introdução à UML</span></a></li><li><a href="tema18.html"><span class="n">18</span><span>Fronteiras do sistema, atores e casos de uso</span></a></li><li><a href="tema19.html"><span class="n">19</span><span>Diagrama de casos de uso: relações</span></a></li><li><a href="tema20.html"><span class="n">20</span><span>Diagramas de Fluxo de Dados (DFD)</span></a></li><li><a href="tema21.html"><span class="n">21</span><span>DFD de nível 1</span></a></li><li><a href="tema22.html"><span class="n">22</span><span>Diagramas de atividade</span></a></li><li><a href="tema23.html"><span class="n">23</span><span>Diagramas de estados e de sequência</span></a></li></ol><h3>Implementação e projeto final</h3><ol><li><a href="tema24.html"><span class="n">24</span><span>Representação da implementação</span></a></li><li><a href="tema25.html"><span class="n">25</span><span>Integração dos modelos e apresentação do projeto</span></a></li></ol></nav></details>
+<main><article>
+<header class="cab"><p class="tema">Tema 3 · Fundamentos</p><h1>Análise de sistemas e informatização</h1><p class="sub">Atividade de análise de sistemas no processo de informatização; problemas e necessidades das organizações</p></header>
+
+<p><strong>Informatizar</strong> é passar a apoiar com meios informáticos um processo que antes era feito em papel ou de forma dispersa. Mas informatizar um mau processo apenas o torna mais rápido a fazer mal. Por isso, a análise vem sempre antes: compreender o problema antes de propor a solução.</p>
+
+<h2>O que faz o analista neste processo</h2>
+<ol>
+<li><strong>Estudar o sistema atual</strong> — como funciona hoje, quem faz o quê, com que documentos.</li>
+<li><strong>Identificar problemas e necessidades</strong> — onde falha, onde se perde tempo, o que falta.</li>
+<li><strong>Definir objetivos</strong> — o que se espera do novo sistema, de forma mensurável.</li>
+<li><strong>Propor soluções</strong> e avaliar a sua <strong>viabilidade</strong>: técnica (é possível?), económica (compensa?) e operacional (as pessoas vão usá-la?).</li>
+</ol>
+
+<h2>Problemas frequentes nas organizações</h2>
+<ul>
+<li>Informação repetida em vários sítios e que deixa de coincidir (redundância e inconsistência).</li>
+<li>Erros de transcrição e de cálculo.</li>
+<li>Demora a encontrar um registo ou a produzir uma lista.</li>
+<li>Perda ou deterioração de documentos em papel.</li>
+<li>Falta de controlo de acessos e de cópias de segurança.</li>
+<li>Impossibilidade de obter estatísticas para decidir.</li>
+</ul>
+
+<h2>Exemplo: ficha de leitor em papel</h2>
+<table>
+<tr><th>Aspeto</th><th>Processo manual</th><th>Processo informatizado</th></tr>
+<tr><td>Registo do empréstimo</td><td>Escrever à mão numa ficha</td><td>Ler o cartão e o livro; o sistema regista</td></tr>
+<tr><td>Livros em atraso</td><td>Percorrer todas as fichas</td><td>Lista gerada automaticamente</td></tr>
+<tr><td>Pesquisa de um livro</td><td>Ficheiro de cartões</td><td>Pesquisa por título, autor ou tema</td></tr>
+<tr><td>Segurança</td><td>Armário com chave</td><td>Contas de utilizador e cópias de segurança</td></tr>
+</table>
+<p class="nota">Informatizar não é substituir papel por ecrã. É repensar o processo para eliminar passos inúteis, reduzir erros e produzir melhor informação.</p>
+
+<section class="atividade"><h2>Atividade</h2><p class="at-titulo">Comparar um processo manual com a sua possível informatização; identificar problemas e oportunidades de melhoria</p>
+
+<p>A professora responsável pelas <strong>visitas de estudo</strong> recolhe autorizações em papel, escreve a lista de participantes num documento de texto, recebe o dinheiro em mão, regista os pagamentos num caderno e no fim tem de enviar uma lista final ao conselho executivo.</p>
+<ol>
+<li>Desenhe, em passos, o processo manual.</li>
+<li>Identifique <strong>cinco problemas</strong> deste processo.</li>
+<li>Proponha como cada um seria resolvido num sistema informatizado e indique duas <strong>oportunidades de melhoria</strong> que o papel nunca permitiria.</li>
+</ol>
+
+<details class="resolucao"><summary>Ver proposta de resolução</summary><div class="dentro">
+<table>
+<tr><th>Problema no processo manual</th><th>Melhoria com informatização</th></tr>
+<tr><td>Autorizações perdem-se ou chegam fora de prazo.</td><td>Autorização submetida online, com lembrete automático.</td></tr>
+<tr><td>Lista em documento de texto fica desatualizada.</td><td>Lista gerada a partir da base de dados, sempre atual.</td></tr>
+<tr><td>Dinheiro em mão: risco de erro e de extravio.</td><td>Pagamento eletrónico com comprovativo.</td></tr>
+<tr><td>Caderno de pagamentos difícil de consultar.</td><td>Consulta imediata do estado de cada aluno.</td></tr>
+<tr><td>Lista final feita à pressa e sujeita a erros.</td><td>Relatório final gerado em segundos.</td></tr>
+</table>
+<p><strong>Oportunidades:</strong> estatísticas de participação por turma e por ano; reaproveitamento dos dados dos alunos já existentes, evitando recolhê-los de cada vez.</p>
+</div></details>
+</section>
+<section class="resumo"><h2>Em resumo</h2><ul><li>Informatizar exige primeiro compreender e, se necessário, repensar o processo.</li><li>A análise estuda o sistema atual, identifica problemas e necessidades, define objetivos e avalia a viabilidade.</li><li>Os problemas típicos são redundância, erros, lentidão, perda de informação e falta de segurança.</li><li>A informatização traz também oportunidades que o processo manual não oferece.</li></ul></section>
+<nav class="pn" aria-label="Navegação entre temas"><a href="tema02.html"><small>Tema anterior</small>2. Sistemas, subsistemas, ambiente e fronteiras</a><a href="tema04.html" style="text-align:right"><small>Tema seguinte</small>4. Técnicas de recolha e análise de informação</a></nav>
+</article></main></div><script>
+(function(){var m=document.querySelector('details.menu');if(m&&window.innerWidth<900){m.removeAttribute('open');}
+var a=document.querySelector('.menu a[aria-current=page]');if(a&&window.innerWidth>=900){a.scrollIntoView({block:'center'});}})();
+</script></body></html>

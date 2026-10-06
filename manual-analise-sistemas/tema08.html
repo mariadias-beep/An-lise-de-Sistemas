@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>8. Introdução à modelação de dados — Manual de Análise de Sistemas</title>
+<link rel="stylesheet" href="css/estilo.css"></head><body>
+<div class="layout"><details class="menu" open><summary><a class="marca" href="index.html">Manual de Análise de Sistemas</a></summary><nav aria-label="Temas"><h3>Fundamentos</h3><ol><li><a href="tema01.html"><span class="n">1</span><span>Introdução à análise de sistemas</span></a></li><li><a href="tema02.html"><span class="n">2</span><span>Sistemas, subsistemas, ambiente e fronteiras</span></a></li><li><a href="tema03.html"><span class="n">3</span><span>Análise de sistemas e informatização</span></a></li></ol><h3>Levantamento e requisitos</h3><ol><li><a href="tema04.html"><span class="n">4</span><span>Técnicas de recolha e análise de informação</span></a></li><li><a href="tema05.html"><span class="n">5</span><span>Requisitos de sistemas de informação</span></a></li></ol><h3>Desenvolvimento de software</h3><ol><li><a href="tema06.html"><span class="n">6</span><span>Ciclo de vida do software</span></a></li><li><a href="tema07.html"><span class="n">7</span><span>Modelos de desenvolvimento de software</span></a></li></ol><h3>Modelação de dados</h3><ol><li><a href="tema08.html" aria-current="page"><span class="n">8</span><span>Introdução à modelação de dados</span></a></li><li><a href="tema09.html"><span class="n">9</span><span>Entidades e tipos de atributos</span></a></li><li><a href="tema10.html"><span class="n">10</span><span>Relacionamentos entre entidades</span></a></li><li><a href="tema11.html"><span class="n">11</span><span>Modelo Entidade-Relacionamento</span></a></li><li><a href="tema12.html"><span class="n">12</span><span>Modelo Entidade-Relacionamento: consolidação</span></a></li><li><a href="tema13.html"><span class="n">13</span><span>Do modelo conceptual ao modelo relacional</span></a></li><li><a href="tema14.html"><span class="n">14</span><span>Modelo físico: chaves primárias e candidatas</span></a></li><li><a href="tema15.html"><span class="n">15</span><span>Chaves estrangeiras</span></a></li><li><a href="tema16.html"><span class="n">16</span><span>Integridade de dados</span></a></li></ol><h3>UML e modelação do comportamento</h3><ol><li><a href="tema17.html"><span class="n">17</span><span>Introdução à UML</span></a></li><li><a href="tema18.html"><span class="n">18</span><span>Fronteiras do sistema, atores e casos de uso</span></a></li><li><a href="tema19.html"><span class="n">19</span><span>Diagrama de casos de uso: relações</span></a></li><li><a href="tema20.html"><span class="n">20</span><span>Diagramas de Fluxo de Dados (DFD)</span></a></li><li><a href="tema21.html"><span class="n">21</span><span>DFD de nível 1</span></a></li><li><a href="tema22.html"><span class="n">22</span><span>Diagramas de atividade</span></a></li><li><a href="tema23.html"><span class="n">23</span><span>Diagramas de estados e de sequência</span></a></li></ol><h3>Implementação e projeto final</h3><ol><li><a href="tema24.html"><span class="n">24</span><span>Representação da implementação</span></a></li><li><a href="tema25.html"><span class="n">25</span><span>Integração dos modelos e apresentação do projeto</span></a></li></ol></nav></details>
+<main><article>
+<header class="cab"><p class="tema">Tema 8 · Modelação de dados</p><h1>Introdução à modelação de dados</h1><p class="sub">Entidades, atributos e relacionamentos</p></header>
+
+<p>Todo o sistema de informação guarda dados. Antes de criar tabelas, é preciso decidir <em>que dados são relevantes</em> e <em>como se relacionam</em>. A <strong>modelação de dados</strong> responde a esta questão através de modelos que se vão tornando mais próximos da implementação.</p>
+
+<table>
+<tr><th>Nível</th><th>O que descreve</th><th>Exemplo</th></tr>
+<tr><td>Conceptual</td><td>Os dados do negócio, independentemente da tecnologia.</td><td>Modelo Entidade-Relacionamento (ER)</td></tr>
+<tr><td>Lógico</td><td>Os dados organizados segundo um modelo de bases de dados.</td><td>Modelo relacional (tabelas)</td></tr>
+<tr><td>Físico</td><td>A implementação concreta num sistema de gestão de bases de dados.</td><td>Tipos de dados, chaves, restrições</td></tr>
+</table>
+
+<h2>Os três elementos básicos</h2>
+<ul>
+<li><strong>Entidade</strong> — algo do mundo real sobre o qual queremos guardar dados (Leitor, Livro, Aluno, Produto). Representa-se por um retângulo.</li>
+<li><strong>Atributo</strong> — uma característica da entidade (nome, ISBN, preço). Representa-se por uma elipse; o atributo que identifica cada ocorrência é sublinhado.</li>
+<li><strong>Relacionamento</strong> — a associação entre entidades (um Aluno <em>frequenta</em> uma Disciplina). Representa-se por um losango, com a cardinalidade nas ligações.</li>
+</ul>
+<figure><img src="imagens/notacao_er.svg" alt="Notação do modelo Entidade-Relacionamento." loading="lazy"><figcaption>Figura 8.1 — Notação do modelo Entidade-Relacionamento.</figcaption></figure>
+
+<p>Uma <strong>ocorrência</strong> é um exemplar concreto da entidade: «Ana Reis» é uma ocorrência de Leitor. Quando o modelo ficar maior, representaremos os atributos listados dentro da própria entidade, para poupar espaço — é uma notação equivalente.</p>
+
+<section class="atividade"><h2>Atividade</h2><p class="at-titulo">Identificar entidades e atributos num sistema de biblioteca, escola e loja online</p>
+
+<p>Para cada um dos três sistemas, identifique pelo menos <strong>quatro entidades</strong> e, para cada uma, três a cinco <strong>atributos</strong>, indicando o atributo identificador.</p>
+<ol>
+<li>Uma biblioteca.</li>
+<li>Uma escola.</li>
+<li>Uma loja online.</li>
+</ol>
+
+<details class="resolucao"><summary>Ver proposta de resolução</summary><div class="dentro">
+<table>
+<tr><th>Sistema</th><th>Entidade</th><th>Atributos (identificador sublinhado)</th></tr>
+<tr><td rowspan="4">Biblioteca</td><td>Leitor</td><td><u>nºLeitor</u>, nome, contacto, dataInscrição</td></tr>
+<tr><td>Livro</td><td><u>ISBN</u>, título, editora, anoEdição</td></tr>
+<tr><td>Autor</td><td><u>idAutor</u>, nome, nacionalidade</td></tr>
+<tr><td>Empréstimo</td><td><u>nºEmpréstimo</u>, dataEmpréstimo, dataPrevistaDevolução</td></tr>
+<tr><td rowspan="4">Escola</td><td>Aluno</td><td><u>nºAluno</u>, nome, dataNascimento, morada</td></tr>
+<tr><td>Turma</td><td><u>códigoTurma</u>, ano, curso</td></tr>
+<tr><td>Disciplina</td><td><u>códigoDisciplina</u>, designação, cargaHorária</td></tr>
+<tr><td>Professor</td><td><u>nºProfessor</u>, nome, grupoRecrutamento</td></tr>
+<tr><td rowspan="4">Loja online</td><td>Cliente</td><td><u>nºCliente</u>, nome, email, morada</td></tr>
+<tr><td>Produto</td><td><u>códigoProduto</u>, designação, preço, stock</td></tr>
+<tr><td>Encomenda</td><td><u>nºEncomenda</u>, data, estado, total</td></tr>
+<tr><td>Pagamento</td><td><u>nºPagamento</u>, método, montante, data</td></tr>
+</table>
+</div></details>
+</section>
+<section class="resumo"><h2>Em resumo</h2><ul><li>A modelação de dados passa por três níveis: conceptual, lógico e físico.</li><li>Uma entidade tem atributos; um deles identifica cada ocorrência.</li><li>Os relacionamentos associam entidades e levam cardinalidade.</li><li>O modelo Entidade-Relacionamento é o primeiro modelo de dados do projeto.</li></ul></section>
+<nav class="pn" aria-label="Navegação entre temas"><a href="tema07.html"><small>Tema anterior</small>7. Modelos de desenvolvimento de software</a><a href="tema09.html" style="text-align:right"><small>Tema seguinte</small>9. Entidades e tipos de atributos</a></nav>
+</article></main></div><script>
+(function(){var m=document.querySelector('details.menu');if(m&&window.innerWidth<900){m.removeAttribute('open');}
+var a=document.querySelector('.menu a[aria-current=page]');if(a&&window.innerWidth>=900){a.scrollIntoView({block:'center'});}})();
+</script></body></html>
