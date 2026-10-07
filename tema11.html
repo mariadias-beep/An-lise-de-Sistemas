@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>11. Modelo Entidade-Relacionamento — Manual de Análise de Sistemas</title>
+<link rel="stylesheet" href="css/estilo.css"></head><body>
+<div class="layout"><details class="menu" open><summary><a class="marca" href="index.html">Manual de Análise de Sistemas</a></summary><nav aria-label="Temas"><h3>Fundamentos</h3><ol><li><a href="tema01.html"><span class="n">1</span><span>Introdução à análise de sistemas</span></a></li><li><a href="tema02.html"><span class="n">2</span><span>Sistemas, subsistemas, ambiente e fronteiras</span></a></li><li><a href="tema03.html"><span class="n">3</span><span>Análise de sistemas e informatização</span></a></li></ol><h3>Levantamento e requisitos</h3><ol><li><a href="tema04.html"><span class="n">4</span><span>Técnicas de recolha e análise de informação</span></a></li><li><a href="tema05.html"><span class="n">5</span><span>Requisitos de sistemas de informação</span></a></li></ol><h3>Desenvolvimento de software</h3><ol><li><a href="tema06.html"><span class="n">6</span><span>Ciclo de vida do software</span></a></li><li><a href="tema07.html"><span class="n">7</span><span>Modelos de desenvolvimento de software</span></a></li></ol><h3>Modelação de dados</h3><ol><li><a href="tema08.html"><span class="n">8</span><span>Introdução à modelação de dados</span></a></li><li><a href="tema09.html"><span class="n">9</span><span>Entidades e tipos de atributos</span></a></li><li><a href="tema10.html"><span class="n">10</span><span>Relacionamentos entre entidades</span></a></li><li><a href="tema11.html" aria-current="page"><span class="n">11</span><span>Modelo Entidade-Relacionamento</span></a></li><li><a href="tema12.html"><span class="n">12</span><span>Modelo Entidade-Relacionamento: consolidação</span></a></li><li><a href="tema13.html"><span class="n">13</span><span>Do modelo conceptual ao modelo relacional</span></a></li><li><a href="tema14.html"><span class="n">14</span><span>Modelo físico: chaves primárias e candidatas</span></a></li><li><a href="tema15.html"><span class="n">15</span><span>Chaves estrangeiras</span></a></li><li><a href="tema16.html"><span class="n">16</span><span>Integridade de dados</span></a></li></ol><h3>UML e modelação do comportamento</h3><ol><li><a href="tema17.html"><span class="n">17</span><span>Introdução à UML</span></a></li><li><a href="tema18.html"><span class="n">18</span><span>Fronteiras do sistema, atores e casos de uso</span></a></li><li><a href="tema19.html"><span class="n">19</span><span>Diagrama de casos de uso: relações</span></a></li><li><a href="tema20.html"><span class="n">20</span><span>Diagramas de Fluxo de Dados (DFD)</span></a></li><li><a href="tema21.html"><span class="n">21</span><span>DFD de nível 1</span></a></li><li><a href="tema22.html"><span class="n">22</span><span>Diagramas de atividade</span></a></li><li><a href="tema23.html"><span class="n">23</span><span>Diagramas de estados e de sequência</span></a></li></ol><h3>Implementação e projeto final</h3><ol><li><a href="tema24.html"><span class="n">24</span><span>Representação da implementação</span></a></li><li><a href="tema25.html"><span class="n">25</span><span>Integração dos modelos e apresentação do projeto</span></a></li></ol></nav></details>
+<main><article>
+<header class="cab"><p class="tema">Tema 11 · Modelação de dados</p><h1>Modelo Entidade-Relacionamento</h1><p class="sub">Regras e construção de diagramas</p></header>
+
+<p>O <strong>Modelo Entidade-Relacionamento (ER)</strong> reúne entidades, atributos e relacionamentos num diagrama (DER) que representa os dados do sistema. É o principal modelo da fase de análise para quem quer construir uma base de dados.</p>
+
+<h2>Como construir um DER</h2>
+<ol>
+<li><strong>Sublinhar os substantivos</strong> da descrição do problema: são candidatos a entidades ou atributos.</li>
+<li><strong>Decidir o que é entidade</strong> (tem vários atributos e várias ocorrências) <strong>e o que é atributo</strong> (descreve uma entidade).</li>
+<li><strong>Escolher o identificador</strong> de cada entidade.</li>
+<li><strong>Identificar os relacionamentos</strong> pelos verbos da descrição e definir a cardinalidade.</li>
+<li><strong>Resolver os N:M</strong> com entidades associativas, sempre que tenham dados próprios.</li>
+<li><strong>Rever</strong>: cada requisito está representado? Há dados repetidos?</li>
+</ol>
+
+<h2>Regras de boa construção</h2>
+<ul>
+<li>Nomes de entidades no singular e com maiúscula inicial (Leitor, não Leitores).</li>
+<li>Toda a entidade tem um identificador.</li>
+<li>Os relacionamentos têm nome e cardinalidade nas duas extremidades.</li>
+<li>Os mesmos dados não aparecem em duas entidades.</li>
+<li>Não se representam atributos derivados de forma duplicada nem chaves estrangeiras (isso fica para o modelo relacional).</li>
+</ul>
+
+<h2>Exemplo: escola</h2>
+<figure><img src="imagens/er_escola.svg" alt="DER simplificado de uma escola (atributos listados dentro de cada entidade)." loading="lazy"><figcaption>Figura 11.1 — DER simplificado de uma escola (atributos listados dentro de cada entidade).</figcaption></figure>
+<p>Lê-se: «uma Turma tem muitos Alunos, mas cada Aluno pertence a uma Turma» e «um Aluno frequenta muitas Disciplinas e cada Disciplina é frequentada por muitos Alunos».</p>
+
+<section class="atividade"><h2>Atividade</h2><p class="at-titulo">Criar o modelo Entidade-Relacionamento de uma biblioteca</p>
+
+<p>Crie o DER de uma <strong>biblioteca</strong> a partir da seguinte descrição:</p>
+<blockquote>Os leitores inscrevem-se na biblioteca e recebem um número de leitor. A biblioteca tem livros, identificados por ISBN; de cada livro podem existir vários exemplares físicos. Cada livro é escrito por um ou mais autores, e um autor pode ter escrito vários livros. Os leitores requisitam exemplares: regista-se a data do empréstimo, a data prevista e a data de devolução.</blockquote>
+
+<details class="resolucao"><summary>Ver proposta de resolução</summary><div class="dentro">
+<figure><img src="imagens/er_biblioteca.svg" alt="Proposta de DER para a biblioteca." loading="lazy"><figcaption>Figura 11.2 — Proposta de DER para a biblioteca.</figcaption></figure>
+<ul>
+<li><strong>Entidades:</strong> Leitor, Empréstimo, Exemplar, Livro, Autor.</li>
+<li><strong>Leitor 1:N Empréstimo</strong>: um leitor realiza vários empréstimos; cada empréstimo é de um só leitor.</li>
+<li><strong>Empréstimo N:1 Exemplar</strong>: simplificação — cada empréstimo regista um exemplar. Se um empréstimo puder incluir vários, seria preciso uma entidade de linha de empréstimo.</li>
+<li><strong>Livro 1:N Exemplar</strong>: um livro tem vários exemplares físicos.</li>
+<li><strong>Livro N:M Autor</strong>: resolve-se, no modelo relacional, com uma tabela associativa.</li>
+</ul>
+</div></details>
+</section>
+<section class="resumo"><h2>Em resumo</h2><ul><li>O DER representa entidades, atributos e relacionamentos do sistema.</li><li>Constrói-se a partir da descrição do problema: substantivos, verbos, identificadores, cardinalidades.</li><li>As regras de boa construção evitam redundância e ambiguidade.</li></ul></section>
+<nav class="pn" aria-label="Navegação entre temas"><a href="tema10.html"><small>Tema anterior</small>10. Relacionamentos entre entidades</a><a href="tema12.html" style="text-align:right"><small>Tema seguinte</small>12. Modelo Entidade-Relacionamento: consolidação</a></nav>
+</article></main></div><script>
+(function(){var m=document.querySelector('details.menu');if(m&&window.innerWidth<900){m.removeAttribute('open');}
+var a=document.querySelector('.menu a[aria-current=page]');if(a&&window.innerWidth>=900){a.scrollIntoView({block:'center'});}})();
+</script></body></html>

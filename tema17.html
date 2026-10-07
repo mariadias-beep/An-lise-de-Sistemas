@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>17. Introdução à UML — Manual de Análise de Sistemas</title>
+<link rel="stylesheet" href="css/estilo.css"></head><body>
+<div class="layout"><details class="menu" open><summary><a class="marca" href="index.html">Manual de Análise de Sistemas</a></summary><nav aria-label="Temas"><h3>Fundamentos</h3><ol><li><a href="tema01.html"><span class="n">1</span><span>Introdução à análise de sistemas</span></a></li><li><a href="tema02.html"><span class="n">2</span><span>Sistemas, subsistemas, ambiente e fronteiras</span></a></li><li><a href="tema03.html"><span class="n">3</span><span>Análise de sistemas e informatização</span></a></li></ol><h3>Levantamento e requisitos</h3><ol><li><a href="tema04.html"><span class="n">4</span><span>Técnicas de recolha e análise de informação</span></a></li><li><a href="tema05.html"><span class="n">5</span><span>Requisitos de sistemas de informação</span></a></li></ol><h3>Desenvolvimento de software</h3><ol><li><a href="tema06.html"><span class="n">6</span><span>Ciclo de vida do software</span></a></li><li><a href="tema07.html"><span class="n">7</span><span>Modelos de desenvolvimento de software</span></a></li></ol><h3>Modelação de dados</h3><ol><li><a href="tema08.html"><span class="n">8</span><span>Introdução à modelação de dados</span></a></li><li><a href="tema09.html"><span class="n">9</span><span>Entidades e tipos de atributos</span></a></li><li><a href="tema10.html"><span class="n">10</span><span>Relacionamentos entre entidades</span></a></li><li><a href="tema11.html"><span class="n">11</span><span>Modelo Entidade-Relacionamento</span></a></li><li><a href="tema12.html"><span class="n">12</span><span>Modelo Entidade-Relacionamento: consolidação</span></a></li><li><a href="tema13.html"><span class="n">13</span><span>Do modelo conceptual ao modelo relacional</span></a></li><li><a href="tema14.html"><span class="n">14</span><span>Modelo físico: chaves primárias e candidatas</span></a></li><li><a href="tema15.html"><span class="n">15</span><span>Chaves estrangeiras</span></a></li><li><a href="tema16.html"><span class="n">16</span><span>Integridade de dados</span></a></li></ol><h3>UML e modelação do comportamento</h3><ol><li><a href="tema17.html" aria-current="page"><span class="n">17</span><span>Introdução à UML</span></a></li><li><a href="tema18.html"><span class="n">18</span><span>Fronteiras do sistema, atores e casos de uso</span></a></li><li><a href="tema19.html"><span class="n">19</span><span>Diagrama de casos de uso: relações</span></a></li><li><a href="tema20.html"><span class="n">20</span><span>Diagramas de Fluxo de Dados (DFD)</span></a></li><li><a href="tema21.html"><span class="n">21</span><span>DFD de nível 1</span></a></li><li><a href="tema22.html"><span class="n">22</span><span>Diagramas de atividade</span></a></li><li><a href="tema23.html"><span class="n">23</span><span>Diagramas de estados e de sequência</span></a></li></ol><h3>Implementação e projeto final</h3><ol><li><a href="tema24.html"><span class="n">24</span><span>Representação da implementação</span></a></li><li><a href="tema25.html"><span class="n">25</span><span>Integração dos modelos e apresentação do projeto</span></a></li></ol></nav></details>
+<main><article>
+<header class="cab"><p class="tema">Tema 17 · UML e modelação do comportamento</p><h1>Introdução à UML</h1><p class="sub">Objetivos e importância da linguagem de modelação</p></header>
+
+<p>A <strong>UML</strong> (<em>Unified Modeling Language</em>, Linguagem de Modelação Unificada) é uma linguagem gráfica normalizada para especificar, visualizar e documentar sistemas de software. Não é uma metodologia nem uma linguagem de programação: é um conjunto de diagramas com notação comum.</p>
+
+<h2>Porquê usar UML</h2>
+<ul>
+<li>Cria uma <strong>linguagem comum</strong> entre clientes, analistas e programadores.</li>
+<li>Permite <strong>compreender e discutir</strong> o sistema antes de o construir.</li>
+<li>Serve de <strong>documentação</strong> para quem fizer a manutenção.</li>
+<li>Pode ser usada em qualquer fase e com qualquer modelo de desenvolvimento.</li>
+</ul>
+
+<h2>Famílias de diagramas</h2>
+<figure><img src="imagens/uml_diagramas.svg" alt="Diagramas UML estruturais e comportamentais." loading="lazy"><figcaption>Figura 17.1 — Diagramas UML estruturais e comportamentais.</figcaption></figure>
+
+<table>
+<tr><th>Diagrama</th><th>Finalidade</th><th>Pergunta a que responde</th></tr>
+<tr><td>Casos de uso</td><td>Funções do sistema do ponto de vista dos atores.</td><td>Quem faz o quê com o sistema?</td></tr>
+<tr><td>Atividade</td><td>Fluxo de um processo.</td><td>Que passos e decisões compõem o processo?</td></tr>
+<tr><td>Estados</td><td>Ciclo de vida de um objeto.</td><td>Em que estados pode estar e o que provoca a mudança?</td></tr>
+<tr><td>Sequência</td><td>Troca de mensagens ao longo do tempo.</td><td>Quem fala com quem e por que ordem?</td></tr>
+<tr><td>Colaboração (comunicação)</td><td>Ligações entre objetos e mensagens.</td><td>Que objetos colaboram para cumprir uma função?</td></tr>
+<tr><td>Classes</td><td>Estrutura: classes, atributos, métodos, associações.</td><td>Como está organizado o sistema?</td></tr>
+<tr><td>Componentes</td><td>Módulos de software e dependências.</td><td>De que partes é feito o sistema?</td></tr>
+</table>
+<p>A UML <strong>complementa</strong> o modelo ER e o DFD. O ER descreve os dados; os diagramas UML mostram as funções e o comportamento do sistema.</p>
+
+<section class="atividade"><h2>Atividade</h2><p class="at-titulo">Identificar diferentes diagramas UML e respetivas finalidades</p>
+
+<p>Indique o diagrama UML mais adequado para responder a cada situação:</p>
+<ol type="a">
+<li>Mostrar o que um leitor e um bibliotecário podem fazer com o sistema.</li>
+<li>Representar as várias fases pelas quais passa uma encomenda.</li>
+<li>Descrever, passo a passo, o processo de inscrição de um leitor, com decisões.</li>
+<li>Mostrar a troca de mensagens entre o ecrã, o servidor e a base de dados quando se faz login.</li>
+<li>Representar as classes Leitor, Livro e Empréstimo com atributos e métodos.</li>
+<li>Mostrar os módulos de uma aplicação e as dependências entre eles.</li>
+</ol>
+
+<details class="resolucao"><summary>Ver proposta de resolução</summary><div class="dentro">
+<table>
+<tr><th>Situação</th><th>Diagrama</th></tr>
+<tr><td>a)</td><td>Casos de uso</td></tr>
+<tr><td>b)</td><td>Estados</td></tr>
+<tr><td>c)</td><td>Atividade</td></tr>
+<tr><td>d)</td><td>Sequência</td></tr>
+<tr><td>e)</td><td>Classes</td></tr>
+<tr><td>f)</td><td>Componentes</td></tr>
+</table>
+</div></details>
+</section>
+<section class="resumo"><h2>Em resumo</h2><ul><li>A UML é uma linguagem gráfica normalizada para modelar sistemas de software.</li><li>Os diagramas dividem-se em estruturais (o que o sistema é) e comportamentais (o que faz).</li><li>Cada diagrama responde a uma pergunta diferente e complementa os restantes.</li></ul></section>
+<nav class="pn" aria-label="Navegação entre temas"><a href="tema16.html"><small>Tema anterior</small>16. Integridade de dados</a><a href="tema18.html" style="text-align:right"><small>Tema seguinte</small>18. Fronteiras do sistema, atores e casos de uso</a></nav>
+</article></main></div><script>
+(function(){var m=document.querySelector('details.menu');if(m&&window.innerWidth<900){m.removeAttribute('open');}
+var a=document.querySelector('.menu a[aria-current=page]');if(a&&window.innerWidth>=900){a.scrollIntoView({block:'center'});}})();
+</script></body></html>

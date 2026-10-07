@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>23. Diagramas de estados e de sequência — Manual de Análise de Sistemas</title>
+<link rel="stylesheet" href="css/estilo.css"></head><body>
+<div class="layout"><details class="menu" open><summary><a class="marca" href="index.html">Manual de Análise de Sistemas</a></summary><nav aria-label="Temas"><h3>Fundamentos</h3><ol><li><a href="tema01.html"><span class="n">1</span><span>Introdução à análise de sistemas</span></a></li><li><a href="tema02.html"><span class="n">2</span><span>Sistemas, subsistemas, ambiente e fronteiras</span></a></li><li><a href="tema03.html"><span class="n">3</span><span>Análise de sistemas e informatização</span></a></li></ol><h3>Levantamento e requisitos</h3><ol><li><a href="tema04.html"><span class="n">4</span><span>Técnicas de recolha e análise de informação</span></a></li><li><a href="tema05.html"><span class="n">5</span><span>Requisitos de sistemas de informação</span></a></li></ol><h3>Desenvolvimento de software</h3><ol><li><a href="tema06.html"><span class="n">6</span><span>Ciclo de vida do software</span></a></li><li><a href="tema07.html"><span class="n">7</span><span>Modelos de desenvolvimento de software</span></a></li></ol><h3>Modelação de dados</h3><ol><li><a href="tema08.html"><span class="n">8</span><span>Introdução à modelação de dados</span></a></li><li><a href="tema09.html"><span class="n">9</span><span>Entidades e tipos de atributos</span></a></li><li><a href="tema10.html"><span class="n">10</span><span>Relacionamentos entre entidades</span></a></li><li><a href="tema11.html"><span class="n">11</span><span>Modelo Entidade-Relacionamento</span></a></li><li><a href="tema12.html"><span class="n">12</span><span>Modelo Entidade-Relacionamento: consolidação</span></a></li><li><a href="tema13.html"><span class="n">13</span><span>Do modelo conceptual ao modelo relacional</span></a></li><li><a href="tema14.html"><span class="n">14</span><span>Modelo físico: chaves primárias e candidatas</span></a></li><li><a href="tema15.html"><span class="n">15</span><span>Chaves estrangeiras</span></a></li><li><a href="tema16.html"><span class="n">16</span><span>Integridade de dados</span></a></li></ol><h3>UML e modelação do comportamento</h3><ol><li><a href="tema17.html"><span class="n">17</span><span>Introdução à UML</span></a></li><li><a href="tema18.html"><span class="n">18</span><span>Fronteiras do sistema, atores e casos de uso</span></a></li><li><a href="tema19.html"><span class="n">19</span><span>Diagrama de casos de uso: relações</span></a></li><li><a href="tema20.html"><span class="n">20</span><span>Diagramas de Fluxo de Dados (DFD)</span></a></li><li><a href="tema21.html"><span class="n">21</span><span>DFD de nível 1</span></a></li><li><a href="tema22.html"><span class="n">22</span><span>Diagramas de atividade</span></a></li><li><a href="tema23.html" aria-current="page"><span class="n">23</span><span>Diagramas de estados e de sequência</span></a></li></ol><h3>Implementação e projeto final</h3><ol><li><a href="tema24.html"><span class="n">24</span><span>Representação da implementação</span></a></li><li><a href="tema25.html"><span class="n">25</span><span>Integração dos modelos e apresentação do projeto</span></a></li></ol></nav></details>
+<main><article>
+<header class="cab"><p class="tema">Tema 23 · UML e modelação do comportamento</p><h1>Diagramas de estados e de sequência</h1><p class="sub">Eventos, transições e interação entre objetos</p></header>
+
+<p>Estes dois diagramas descrevem o comportamento, mas com perspetivas diferentes: o primeiro olha para <em>um objeto ao longo do tempo</em>; o segundo, para <em>vários objetos que trocam mensagens</em>.</p>
+
+<h2>Diagrama de estados</h2>
+<p>Mostra os <strong>estados</strong> por que passa um objeto durante a sua vida e os <strong>eventos</strong> que provocam as <strong>transições</strong> entre eles.</p>
+<table>
+<tr><th>Elemento</th><th>Descrição</th></tr>
+<tr><td>Estado</td><td>Situação em que o objeto se encontra durante algum tempo (Criada, Paga, Enviada).</td></tr>
+<tr><td>Transição</td><td>Seta que liga dois estados.</td></tr>
+<tr><td>Evento</td><td>O que provoca a mudança, escrito sobre a seta (pagamento, expedição). Pode ter uma condição [..] e uma ação /...</td></tr>
+<tr><td>Estado inicial e final</td><td>Círculo preenchido e círculo com anel.</td></tr>
+</table>
+
+<h2>Diagrama de sequência</h2>
+<p>Mostra a <strong>ordem das mensagens</strong> trocadas entre objetos ou atores, de cima para baixo, no eixo do tempo.</p>
+<table>
+<tr><th>Elemento</th><th>Descrição</th></tr>
+<tr><td>Linha de vida</td><td>Retângulo no topo e linha tracejada vertical, para cada participante.</td></tr>
+<tr><td>Mensagem</td><td>Seta horizontal com o nome da operação, de quem envia para quem recebe.</td></tr>
+<tr><td>Retorno</td><td>Seta tracejada com a resposta.</td></tr>
+<tr><td>Autochamada</td><td>Seta que volta à mesma linha de vida.</td></tr>
+<tr><td>Fragmentos</td><td>Blocos <em>alt</em> (alternativas), <em>opt</em> (opcional) e <em>loop</em> (repetição).</td></tr>
+</table>
+<p class="nota">No diagrama de sequência, o tempo corre de cima para baixo; a posição horizontal não indica ordem.</p>
+
+<section class="atividade"><h2>Atividade</h2><p class="at-titulo">Criar o diagrama de estados de uma encomenda e o diagrama de sequência de um processo de login</p>
+
+<ol>
+<li>Crie o <strong>diagrama de estados</strong> de uma encomenda de uma loja online: é criada, paga, preparada, enviada e entregue; pode ser cancelada antes do envio.</li>
+<li>Crie o <strong>diagrama de sequência</strong> de um login: o utilizador introduz as credenciais no ecrã, que as envia ao controlador; este consulta a base de dados, verifica a palavra-passe e devolve o resultado ao ecrã.</li>
+</ol>
+
+<details class="resolucao"><summary>Ver proposta de resolução</summary><div class="dentro">
+<figure><img src="imagens/estados_encomenda.svg" alt="Diagrama de estados de uma encomenda." loading="lazy"><figcaption>Figura 23.1 — Diagrama de estados de uma encomenda.</figcaption></figure>
+<figure><img src="imagens/sequencia_login.svg" alt="Diagrama de sequência do login." loading="lazy"><figcaption>Figura 23.2 — Diagrama de sequência do login.</figcaption></figure>
+<p>No diagrama de sequência, o resultado do login poderia ser tratado com um fragmento <em>alt</em>: [credenciais corretas] → mostrar área pessoal; [credenciais incorretas] → mostrar mensagem de erro.</p>
+</div></details>
+</section>
+<section class="resumo"><h2>Em resumo</h2><ul><li>O diagrama de estados descreve o ciclo de vida de um objeto: estados, eventos e transições.</li><li>O diagrama de sequência descreve a ordem das mensagens trocadas entre objetos.</li><li>Ambos complementam o diagrama de atividade.</li></ul></section>
+<nav class="pn" aria-label="Navegação entre temas"><a href="tema22.html"><small>Tema anterior</small>22. Diagramas de atividade</a><a href="tema24.html" style="text-align:right"><small>Tema seguinte</small>24. Representação da implementação</a></nav>
+</article></main></div><script>
+(function(){var m=document.querySelector('details.menu');if(m&&window.innerWidth<900){m.removeAttribute('open');}
+var a=document.querySelector('.menu a[aria-current=page]');if(a&&window.innerWidth>=900){a.scrollIntoView({block:'center'});}})();
+</script></body></html>

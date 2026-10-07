@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>20. Diagramas de Fluxo de Dados (DFD) — Manual de Análise de Sistemas</title>
+<link rel="stylesheet" href="css/estilo.css"></head><body>
+<div class="layout"><details class="menu" open><summary><a class="marca" href="index.html">Manual de Análise de Sistemas</a></summary><nav aria-label="Temas"><h3>Fundamentos</h3><ol><li><a href="tema01.html"><span class="n">1</span><span>Introdução à análise de sistemas</span></a></li><li><a href="tema02.html"><span class="n">2</span><span>Sistemas, subsistemas, ambiente e fronteiras</span></a></li><li><a href="tema03.html"><span class="n">3</span><span>Análise de sistemas e informatização</span></a></li></ol><h3>Levantamento e requisitos</h3><ol><li><a href="tema04.html"><span class="n">4</span><span>Técnicas de recolha e análise de informação</span></a></li><li><a href="tema05.html"><span class="n">5</span><span>Requisitos de sistemas de informação</span></a></li></ol><h3>Desenvolvimento de software</h3><ol><li><a href="tema06.html"><span class="n">6</span><span>Ciclo de vida do software</span></a></li><li><a href="tema07.html"><span class="n">7</span><span>Modelos de desenvolvimento de software</span></a></li></ol><h3>Modelação de dados</h3><ol><li><a href="tema08.html"><span class="n">8</span><span>Introdução à modelação de dados</span></a></li><li><a href="tema09.html"><span class="n">9</span><span>Entidades e tipos de atributos</span></a></li><li><a href="tema10.html"><span class="n">10</span><span>Relacionamentos entre entidades</span></a></li><li><a href="tema11.html"><span class="n">11</span><span>Modelo Entidade-Relacionamento</span></a></li><li><a href="tema12.html"><span class="n">12</span><span>Modelo Entidade-Relacionamento: consolidação</span></a></li><li><a href="tema13.html"><span class="n">13</span><span>Do modelo conceptual ao modelo relacional</span></a></li><li><a href="tema14.html"><span class="n">14</span><span>Modelo físico: chaves primárias e candidatas</span></a></li><li><a href="tema15.html"><span class="n">15</span><span>Chaves estrangeiras</span></a></li><li><a href="tema16.html"><span class="n">16</span><span>Integridade de dados</span></a></li></ol><h3>UML e modelação do comportamento</h3><ol><li><a href="tema17.html"><span class="n">17</span><span>Introdução à UML</span></a></li><li><a href="tema18.html"><span class="n">18</span><span>Fronteiras do sistema, atores e casos de uso</span></a></li><li><a href="tema19.html"><span class="n">19</span><span>Diagrama de casos de uso: relações</span></a></li><li><a href="tema20.html" aria-current="page"><span class="n">20</span><span>Diagramas de Fluxo de Dados (DFD)</span></a></li><li><a href="tema21.html"><span class="n">21</span><span>DFD de nível 1</span></a></li><li><a href="tema22.html"><span class="n">22</span><span>Diagramas de atividade</span></a></li><li><a href="tema23.html"><span class="n">23</span><span>Diagramas de estados e de sequência</span></a></li></ol><h3>Implementação e projeto final</h3><ol><li><a href="tema24.html"><span class="n">24</span><span>Representação da implementação</span></a></li><li><a href="tema25.html"><span class="n">25</span><span>Integração dos modelos e apresentação do projeto</span></a></li></ol></nav></details>
+<main><article>
+<header class="cab"><p class="tema">Tema 20 · UML e modelação do comportamento</p><h1>Diagramas de Fluxo de Dados (DFD)</h1><p class="sub">Entidades externas, processos, fluxos e armazenamento de dados</p></header>
+
+<p>O <strong>Diagrama de Fluxo de Dados (DFD)</strong> mostra como os dados circulam: de onde vêm, que transformações sofrem e para onde vão. Interessa-lhe o <em>movimento dos dados</em>, não a ordem das operações nem a estrutura da base de dados.</p>
+
+<h2>Elementos</h2>
+<table>
+<tr><th>Elemento</th><th>Representação</th><th>Função</th></tr>
+<tr><td>Entidade externa</td><td>Retângulo</td><td>Origem ou destino dos dados fora do sistema (Leitor, Fornecedor).</td></tr>
+<tr><td>Processo</td><td>Círculo, elipse ou retângulo arredondado</td><td>Transforma dados de entrada em dados de saída. Nome: verbo + complemento.</td></tr>
+<tr><td>Fluxo de dados</td><td>Seta com nome</td><td>Dados em movimento entre elementos.</td></tr>
+<tr><td>Armazém de dados</td><td>Retângulo aberto ou duas linhas</td><td>Dados guardados (ficheiro ou tabela).</td></tr>
+</table>
+
+<h2>Regras</h2>
+<ul>
+<li>Todos os fluxos têm <strong>nome</strong>, que descreve os dados que transportam.</li>
+<li>Todo o processo tem pelo menos <strong>uma entrada e uma saída</strong>.</li>
+<li>Os dados <strong>não</strong> passam diretamente entre entidades externas, nem entre armazéns: passam sempre por um processo.</li>
+<li>Entidades externas não acedem diretamente a armazéns.</li>
+</ul>
+
+<h2>DFD de contexto</h2>
+<p>O <strong>diagrama de contexto</strong> (nível 0) mostra o sistema como <em>um único processo</em>, rodeado pelas entidades externas e pelos fluxos que trocam com ele. É o DFD mais geral e corresponde à fronteira do sistema.</p>
+<figure><img src="imagens/dfd_exemplo.svg" alt="DFD de contexto de um sistema de reservas de uma cantina." loading="lazy"><figcaption>Figura 20.1 — DFD de contexto de um sistema de reservas de uma cantina.</figcaption></figure>
+
+<section class="atividade"><h2>Atividade</h2><p class="at-titulo">Construir um DFD de contexto para um sistema de biblioteca</p>
+
+<p>Construa o DFD de contexto para o sistema de gestão de uma <strong>biblioteca</strong>. Identifique as entidades externas e os fluxos de dados em cada sentido.</p>
+
+<details class="resolucao"><summary>Ver proposta de resolução</summary><div class="dentro">
+<figure><img src="imagens/dfd_contexto.svg" alt="DFD de contexto da biblioteca." loading="lazy"><figcaption>Figura 20.2 — DFD de contexto da biblioteca.</figcaption></figure>
+<table>
+<tr><th>Entidade externa</th><th>Fluxos de entrada no sistema</th><th>Fluxos de saída do sistema</th></tr>
+<tr><td>Leitor</td><td>pedido de empréstimo, reserva, inscrição</td><td>comprovativo, aviso de atraso</td></tr>
+<tr><td>Bibliotecário</td><td>registo de livros, leitores e devoluções</td><td>listagens e relatórios</td></tr>
+<tr><td>Fornecedor</td><td>fatura e guia de remessa</td><td>encomenda de livros</td></tr>
+</table>
+</div></details>
+</section>
+<section class="resumo"><h2>Em resumo</h2><ul><li>O DFD mostra o movimento dos dados entre entidades externas, processos e armazéns.</li><li>Todos os fluxos têm nome e passam por um processo.</li><li>O diagrama de contexto representa o sistema como um único processo.</li></ul></section>
+<nav class="pn" aria-label="Navegação entre temas"><a href="tema19.html"><small>Tema anterior</small>19. Diagrama de casos de uso: relações</a><a href="tema21.html" style="text-align:right"><small>Tema seguinte</small>21. DFD de nível 1</a></nav>
+</article></main></div><script>
+(function(){var m=document.querySelector('details.menu');if(m&&window.innerWidth<900){m.removeAttribute('open');}
+var a=document.querySelector('.menu a[aria-current=page]');if(a&&window.innerWidth>=900){a.scrollIntoView({block:'center'});}})();
+</script></body></html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>7. Modelos de desenvolvimento de software — Manual de Análise de Sistemas</title>
+<link rel="stylesheet" href="css/estilo.css"></head><body>
+<div class="layout"><details class="menu" open><summary><a class="marca" href="index.html">Manual de Análise de Sistemas</a></summary><nav aria-label="Temas"><h3>Fundamentos</h3><ol><li><a href="tema01.html"><span class="n">1</span><span>Introdução à análise de sistemas</span></a></li><li><a href="tema02.html"><span class="n">2</span><span>Sistemas, subsistemas, ambiente e fronteiras</span></a></li><li><a href="tema03.html"><span class="n">3</span><span>Análise de sistemas e informatização</span></a></li></ol><h3>Levantamento e requisitos</h3><ol><li><a href="tema04.html"><span class="n">4</span><span>Técnicas de recolha e análise de informação</span></a></li><li><a href="tema05.html"><span class="n">5</span><span>Requisitos de sistemas de informação</span></a></li></ol><h3>Desenvolvimento de software</h3><ol><li><a href="tema06.html"><span class="n">6</span><span>Ciclo de vida do software</span></a></li><li><a href="tema07.html" aria-current="page"><span class="n">7</span><span>Modelos de desenvolvimento de software</span></a></li></ol><h3>Modelação de dados</h3><ol><li><a href="tema08.html"><span class="n">8</span><span>Introdução à modelação de dados</span></a></li><li><a href="tema09.html"><span class="n">9</span><span>Entidades e tipos de atributos</span></a></li><li><a href="tema10.html"><span class="n">10</span><span>Relacionamentos entre entidades</span></a></li><li><a href="tema11.html"><span class="n">11</span><span>Modelo Entidade-Relacionamento</span></a></li><li><a href="tema12.html"><span class="n">12</span><span>Modelo Entidade-Relacionamento: consolidação</span></a></li><li><a href="tema13.html"><span class="n">13</span><span>Do modelo conceptual ao modelo relacional</span></a></li><li><a href="tema14.html"><span class="n">14</span><span>Modelo físico: chaves primárias e candidatas</span></a></li><li><a href="tema15.html"><span class="n">15</span><span>Chaves estrangeiras</span></a></li><li><a href="tema16.html"><span class="n">16</span><span>Integridade de dados</span></a></li></ol><h3>UML e modelação do comportamento</h3><ol><li><a href="tema17.html"><span class="n">17</span><span>Introdução à UML</span></a></li><li><a href="tema18.html"><span class="n">18</span><span>Fronteiras do sistema, atores e casos de uso</span></a></li><li><a href="tema19.html"><span class="n">19</span><span>Diagrama de casos de uso: relações</span></a></li><li><a href="tema20.html"><span class="n">20</span><span>Diagramas de Fluxo de Dados (DFD)</span></a></li><li><a href="tema21.html"><span class="n">21</span><span>DFD de nível 1</span></a></li><li><a href="tema22.html"><span class="n">22</span><span>Diagramas de atividade</span></a></li><li><a href="tema23.html"><span class="n">23</span><span>Diagramas de estados e de sequência</span></a></li></ol><h3>Implementação e projeto final</h3><ol><li><a href="tema24.html"><span class="n">24</span><span>Representação da implementação</span></a></li><li><a href="tema25.html"><span class="n">25</span><span>Integração dos modelos e apresentação do projeto</span></a></li></ol></nav></details>
+<main><article>
+<header class="cab"><p class="tema">Tema 7 · Desenvolvimento de software</p><h1>Modelos de desenvolvimento de software</h1><p class="sub">Modelo em cascata, incremental e iterativo</p></header>
+
+<p>Um <strong>modelo de desenvolvimento</strong> define a forma como as fases do ciclo de vida são organizadas no tempo. Não há um modelo universalmente melhor: depende do projeto.</p>
+<figure><img src="imagens/modelos_desenvolvimento.svg" alt="Os três modelos: cascata, incremental e iterativo." loading="lazy"><figcaption>Figura 7.1 — Os três modelos: cascata, incremental e iterativo.</figcaption></figure>
+
+<h2>Modelo em cascata</h2>
+<p>As fases são executadas <em>uma a seguir à outra</em>, e só se avança quando a anterior está concluída e aprovada. É simples de gerir e de documentar, mas pouco flexível: o cliente só vê o sistema no fim.</p>
+<h2>Modelo incremental</h2>
+<p>O sistema é construído em <em>partes</em>. Cada incremento percorre as fases e é entregue ao cliente, acrescentando funcionalidades à versão anterior. Permite entregas antecipadas e menor risco.</p>
+<h2>Modelo iterativo</h2>
+<p>Constrói-se uma versão inicial incompleta e <em>repete-se</em> o ciclo planear, analisar e projetar, construir e avaliar, refinando o sistema em cada volta. Adapta-se bem quando os requisitos mudam ou não são totalmente conhecidos.</p>
+
+<table>
+<tr><th></th><th>Cascata</th><th>Incremental</th><th>Iterativo</th></tr>
+<tr><td>Requisitos</td><td>Estáveis e conhecidos</td><td>Conhecidos, divisíveis em partes</td><td>Incertos ou em evolução</td></tr>
+<tr><td>Entregas</td><td>Uma, no fim</td><td>Várias, por incrementos</td><td>Versões sucessivas</td></tr>
+<tr><td>Participação do cliente</td><td>Início e fim</td><td>A cada entrega</td><td>Contínua</td></tr>
+<tr><td>Risco</td><td>Elevado se houver mudanças</td><td>Moderado</td><td>Reduzido</td></tr>
+</table>
+
+<section class="atividade"><h2>Atividade</h2><p class="at-titulo">Comparar modelos de desenvolvimento e selecionar o mais adequado para diferentes projetos</p>
+
+<p>Para cada projeto, escolha o modelo de desenvolvimento mais adequado (cascata, incremental ou iterativo) e justifique.</p>
+<ol type="a">
+<li>Software de controlo de bilhética de uma rede de metro, com requisitos fixados por regulamento.</li>
+<li>Aplicação móvel de uma <em>startup</em> que ainda não sabe bem o que os utilizadores vão valorizar.</li>
+<li>Sistema de gestão para uma empresa com módulos independentes: clientes, stock e faturação, a entregar por fases.</li>
+<li>Site de uma associação local, com poucas páginas e conteúdos já definidos.</li>
+</ol>
+
+<details class="resolucao"><summary>Ver proposta de resolução</summary><div class="dentro">
+<table>
+<tr><th>Projeto</th><th>Modelo</th><th>Justificação</th></tr>
+<tr><td>a) Bilhética do metro</td><td>Cascata</td><td>Requisitos estáveis e regulados; exige documentação e aprovação em cada fase.</td></tr>
+<tr><td>b) Aplicação da <em>startup</em></td><td>Iterativo</td><td>Os requisitos vão ser descobertos com o feedback dos utilizadores.</td></tr>
+<tr><td>c) Gestão empresarial</td><td>Incremental</td><td>Os módulos são independentes e podem ser entregues e usados por etapas.</td></tr>
+<tr><td>d) Site da associação</td><td>Cascata (ou incremental)</td><td>Projeto pequeno e bem definido; a simplicidade compensa.</td></tr>
+</table>
+</div></details>
+</section>
+<section class="resumo"><h2>Em resumo</h2><ul><li>Cascata: fases sequenciais, requisitos estáveis.</li><li>Incremental: entregas por partes, cada uma acrescenta funcionalidades.</li><li>Iterativo: ciclos repetidos que refinam o sistema, ideal com requisitos incertos.</li><li>A escolha depende da estabilidade dos requisitos, do risco e da participação do cliente.</li></ul></section>
+<nav class="pn" aria-label="Navegação entre temas"><a href="tema06.html"><small>Tema anterior</small>6. Ciclo de vida do software</a><a href="tema08.html" style="text-align:right"><small>Tema seguinte</small>8. Introdução à modelação de dados</a></nav>
+</article></main></div><script>
+(function(){var m=document.querySelector('details.menu');if(m&&window.innerWidth<900){m.removeAttribute('open');}
+var a=document.querySelector('.menu a[aria-current=page]');if(a&&window.innerWidth>=900){a.scrollIntoView({block:'center'});}})();
+</script></body></html>

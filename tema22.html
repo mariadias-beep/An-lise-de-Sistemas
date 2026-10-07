@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>22. Diagramas de atividade — Manual de Análise de Sistemas</title>
+<link rel="stylesheet" href="css/estilo.css"></head><body>
+<div class="layout"><details class="menu" open><summary><a class="marca" href="index.html">Manual de Análise de Sistemas</a></summary><nav aria-label="Temas"><h3>Fundamentos</h3><ol><li><a href="tema01.html"><span class="n">1</span><span>Introdução à análise de sistemas</span></a></li><li><a href="tema02.html"><span class="n">2</span><span>Sistemas, subsistemas, ambiente e fronteiras</span></a></li><li><a href="tema03.html"><span class="n">3</span><span>Análise de sistemas e informatização</span></a></li></ol><h3>Levantamento e requisitos</h3><ol><li><a href="tema04.html"><span class="n">4</span><span>Técnicas de recolha e análise de informação</span></a></li><li><a href="tema05.html"><span class="n">5</span><span>Requisitos de sistemas de informação</span></a></li></ol><h3>Desenvolvimento de software</h3><ol><li><a href="tema06.html"><span class="n">6</span><span>Ciclo de vida do software</span></a></li><li><a href="tema07.html"><span class="n">7</span><span>Modelos de desenvolvimento de software</span></a></li></ol><h3>Modelação de dados</h3><ol><li><a href="tema08.html"><span class="n">8</span><span>Introdução à modelação de dados</span></a></li><li><a href="tema09.html"><span class="n">9</span><span>Entidades e tipos de atributos</span></a></li><li><a href="tema10.html"><span class="n">10</span><span>Relacionamentos entre entidades</span></a></li><li><a href="tema11.html"><span class="n">11</span><span>Modelo Entidade-Relacionamento</span></a></li><li><a href="tema12.html"><span class="n">12</span><span>Modelo Entidade-Relacionamento: consolidação</span></a></li><li><a href="tema13.html"><span class="n">13</span><span>Do modelo conceptual ao modelo relacional</span></a></li><li><a href="tema14.html"><span class="n">14</span><span>Modelo físico: chaves primárias e candidatas</span></a></li><li><a href="tema15.html"><span class="n">15</span><span>Chaves estrangeiras</span></a></li><li><a href="tema16.html"><span class="n">16</span><span>Integridade de dados</span></a></li></ol><h3>UML e modelação do comportamento</h3><ol><li><a href="tema17.html"><span class="n">17</span><span>Introdução à UML</span></a></li><li><a href="tema18.html"><span class="n">18</span><span>Fronteiras do sistema, atores e casos de uso</span></a></li><li><a href="tema19.html"><span class="n">19</span><span>Diagrama de casos de uso: relações</span></a></li><li><a href="tema20.html"><span class="n">20</span><span>Diagramas de Fluxo de Dados (DFD)</span></a></li><li><a href="tema21.html"><span class="n">21</span><span>DFD de nível 1</span></a></li><li><a href="tema22.html" aria-current="page"><span class="n">22</span><span>Diagramas de atividade</span></a></li><li><a href="tema23.html"><span class="n">23</span><span>Diagramas de estados e de sequência</span></a></li></ol><h3>Implementação e projeto final</h3><ol><li><a href="tema24.html"><span class="n">24</span><span>Representação da implementação</span></a></li><li><a href="tema25.html"><span class="n">25</span><span>Integração dos modelos e apresentação do projeto</span></a></li></ol></nav></details>
+<main><article>
+<header class="cab"><p class="tema">Tema 22 · UML e modelação do comportamento</p><h1>Diagramas de atividade</h1><p class="sub">Estados, ações, decisões, condições e fluxos alternativos</p></header>
+
+<p>O <strong>diagrama de atividade</strong> representa o <em>fluxo de um processo</em>: as ações, a ordem por que se realizam e as decisões que alteram o percurso. É parecido com um fluxograma, mas com símbolos normalizados e com capacidade de mostrar atividades paralelas.</p>
+
+<table>
+<tr><th>Elemento</th><th>Símbolo</th><th>Significado</th></tr>
+<tr><td>Nó inicial</td><td>Círculo preenchido</td><td>Onde o processo começa.</td></tr>
+<tr><td>Ação / atividade</td><td>Retângulo de cantos arredondados</td><td>Um passo do processo («Registar empréstimo»).</td></tr>
+<tr><td>Fluxo</td><td>Seta</td><td>Passagem de uma ação à seguinte.</td></tr>
+<tr><td>Decisão</td><td>Losango</td><td>Escolha de caminho, com condições entre parênteses retos: [sim], [não].</td></tr>
+<tr><td>Bifurcação e junção</td><td>Barra</td><td>Início e fim de atividades em paralelo.</td></tr>
+<tr><td>Nó final</td><td>Círculo com anel</td><td>Fim do processo.</td></tr>
+<tr><td>Partição (<em>swimlane</em>)</td><td>Faixas verticais</td><td>Indica quem faz cada ação (Leitor, Bibliotecário, Sistema).</td></tr>
+</table>
+
+<h2>Como construir</h2>
+<ol>
+<li>Definir o processo e o seu <strong>início</strong> e <strong>fim</strong>.</li>
+<li>Listar as <strong>ações</strong> pela ordem normal de execução.</li>
+<li>Identificar as <strong>decisões</strong> e os <strong>fluxos alternativos</strong> (o que acontece quando algo falha).</li>
+<li>Garantir que <strong>cada caminho chega a um nó final</strong>.</li>
+</ol>
+<p class="nota">Todos os caminhos de uma decisão têm uma condição. Se a condição for «senão», pode ser escrita como [não].</p>
+
+<section class="atividade"><h2>Atividade</h2><p class="at-titulo">Representar o processo de empréstimo de um livro através de um diagrama de atividade</p>
+
+<p>Represente, com um diagrama de atividade, o processo de <strong>empréstimo de um livro</strong>. Considere que o sistema deve: identificar o leitor, verificar se o leitor pode requisitar, procurar o exemplar, verificar a disponibilidade, e, se estiver tudo correto, registar o empréstimo e entregar o livro com comprovativo. Preveja os fluxos alternativos.</p>
+
+<details class="resolucao"><summary>Ver proposta de resolução</summary><div class="dentro">
+<figure><img src="imagens/atividade_emprestimo.svg" alt="Diagrama de atividade do empréstimo de um livro." loading="lazy"><figcaption>Figura 22.1 — Diagrama de atividade do empréstimo de um livro.</figcaption></figure>
+<p>O diagrama apresenta <strong>dois fluxos alternativos</strong>: se o leitor não é válido, o processo termina com uma informação ao leitor; se o exemplar não está disponível, propõe-se uma reserva. O fluxo normal conclui com o registo e a entrega do livro.</p>
+</div></details>
+</section>
+<section class="resumo"><h2>Em resumo</h2><ul><li>O diagrama de atividade representa o fluxo de um processo.</li><li>Usa nós inicial e final, ações, decisões, bifurcações e partições.</li><li>Os fluxos alternativos devem estar previstos e chegar a um nó final.</li></ul></section>
+<nav class="pn" aria-label="Navegação entre temas"><a href="tema21.html"><small>Tema anterior</small>21. DFD de nível 1</a><a href="tema23.html" style="text-align:right"><small>Tema seguinte</small>23. Diagramas de estados e de sequência</a></nav>
+</article></main></div><script>
+(function(){var m=document.querySelector('details.menu');if(m&&window.innerWidth<900){m.removeAttribute('open');}
+var a=document.querySelector('.menu a[aria-current=page]');if(a&&window.innerWidth>=900){a.scrollIntoView({block:'center'});}})();
+</script></body></html>

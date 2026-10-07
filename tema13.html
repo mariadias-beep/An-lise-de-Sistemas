@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>13. Do modelo conceptual ao modelo relacional — Manual de Análise de Sistemas</title>
+<link rel="stylesheet" href="css/estilo.css"></head><body>
+<div class="layout"><details class="menu" open><summary><a class="marca" href="index.html">Manual de Análise de Sistemas</a></summary><nav aria-label="Temas"><h3>Fundamentos</h3><ol><li><a href="tema01.html"><span class="n">1</span><span>Introdução à análise de sistemas</span></a></li><li><a href="tema02.html"><span class="n">2</span><span>Sistemas, subsistemas, ambiente e fronteiras</span></a></li><li><a href="tema03.html"><span class="n">3</span><span>Análise de sistemas e informatização</span></a></li></ol><h3>Levantamento e requisitos</h3><ol><li><a href="tema04.html"><span class="n">4</span><span>Técnicas de recolha e análise de informação</span></a></li><li><a href="tema05.html"><span class="n">5</span><span>Requisitos de sistemas de informação</span></a></li></ol><h3>Desenvolvimento de software</h3><ol><li><a href="tema06.html"><span class="n">6</span><span>Ciclo de vida do software</span></a></li><li><a href="tema07.html"><span class="n">7</span><span>Modelos de desenvolvimento de software</span></a></li></ol><h3>Modelação de dados</h3><ol><li><a href="tema08.html"><span class="n">8</span><span>Introdução à modelação de dados</span></a></li><li><a href="tema09.html"><span class="n">9</span><span>Entidades e tipos de atributos</span></a></li><li><a href="tema10.html"><span class="n">10</span><span>Relacionamentos entre entidades</span></a></li><li><a href="tema11.html"><span class="n">11</span><span>Modelo Entidade-Relacionamento</span></a></li><li><a href="tema12.html"><span class="n">12</span><span>Modelo Entidade-Relacionamento: consolidação</span></a></li><li><a href="tema13.html" aria-current="page"><span class="n">13</span><span>Do modelo conceptual ao modelo relacional</span></a></li><li><a href="tema14.html"><span class="n">14</span><span>Modelo físico: chaves primárias e candidatas</span></a></li><li><a href="tema15.html"><span class="n">15</span><span>Chaves estrangeiras</span></a></li><li><a href="tema16.html"><span class="n">16</span><span>Integridade de dados</span></a></li></ol><h3>UML e modelação do comportamento</h3><ol><li><a href="tema17.html"><span class="n">17</span><span>Introdução à UML</span></a></li><li><a href="tema18.html"><span class="n">18</span><span>Fronteiras do sistema, atores e casos de uso</span></a></li><li><a href="tema19.html"><span class="n">19</span><span>Diagrama de casos de uso: relações</span></a></li><li><a href="tema20.html"><span class="n">20</span><span>Diagramas de Fluxo de Dados (DFD)</span></a></li><li><a href="tema21.html"><span class="n">21</span><span>DFD de nível 1</span></a></li><li><a href="tema22.html"><span class="n">22</span><span>Diagramas de atividade</span></a></li><li><a href="tema23.html"><span class="n">23</span><span>Diagramas de estados e de sequência</span></a></li></ol><h3>Implementação e projeto final</h3><ol><li><a href="tema24.html"><span class="n">24</span><span>Representação da implementação</span></a></li><li><a href="tema25.html"><span class="n">25</span><span>Integração dos modelos e apresentação do projeto</span></a></li></ol></nav></details>
+<main><article>
+<header class="cab"><p class="tema">Tema 13 · Modelação de dados</p><h1>Do modelo conceptual ao modelo relacional</h1><p class="sub">Transformação do modelo conceptual no modelo relacional: entidades, tabelas e atributos</p></header>
+
+<p>O DER é um modelo conceptual. Para o implementar numa base de dados relacional, é preciso transformá-lo em <strong>tabelas</strong>. Existem regras simples para essa transformação.</p>
+
+<table>
+<tr><th>Elemento do DER</th><th>Passa a ser</th></tr>
+<tr><td>Entidade</td><td>Tabela, com o mesmo nome (normalmente).</td></tr>
+<tr><td>Atributo simples</td><td>Coluna da tabela.</td></tr>
+<tr><td>Atributo composto</td><td>Uma coluna por cada componente (rua, código postal, localidade).</td></tr>
+<tr><td>Atributo derivado</td><td>Não se guarda; calcula-se quando necessário.</td></tr>
+<tr><td>Identificador</td><td>Chave primária.</td></tr>
+<tr><td>Relacionamento 1:N</td><td>A chave primária do lado «1» passa para o lado «N» como <strong>chave estrangeira</strong>.</td></tr>
+<tr><td>Relacionamento 1:1</td><td>Chave estrangeira num dos lados (de preferência onde a participação é obrigatória).</td></tr>
+<tr><td>Relacionamento N:M</td><td>Nova tabela, com as chaves primárias das duas entidades como chaves estrangeiras (e os atributos do relacionamento).</td></tr>
+</table>
+
+<h2>Notação textual</h2>
+<p>Costuma escrever-se o modelo relacional de forma compacta: o nome da tabela e, entre parênteses, as colunas, com a chave primária sublinhada e as chaves estrangeiras marcadas com #.</p>
+<pre>Turma(<u>códigoTurma</u>, ano, curso)
+Aluno(<u>nºAluno</u>, nome, dataNascimento, #códigoTurma)
+Disciplina(<u>códigoDisciplina</u>, designação, cargaHorária)
+Inscrição(<u>#nºAluno</u>, <u>#códigoDisciplina</u>, nota)</pre>
+<p>A tabela <em>Inscrição</em> resolve o N:M entre Aluno e Disciplina. A sua chave primária é composta pelas duas chaves estrangeiras.</p>
+
+<section class="atividade"><h2>Atividade</h2><p class="at-titulo">Converter um DER num conjunto de tabelas relacionais</p>
+
+<p>Converta o DER da biblioteca (tema 11) num conjunto de tabelas relacionais, escrevendo-as na notação textual, e apresente um exemplo de dados para duas das tabelas.</p>
+
+<details class="resolucao"><summary>Ver proposta de resolução</summary><div class="dentro">
+<pre>Leitor(<u>nºLeitor</u>, nome, dataNascimento, telemóvel, dataInscrição)
+Livro(<u>ISBN</u>, título, editora, anoEdição)
+Autor(<u>idAutor</u>, nome, nacionalidade)
+Autoria(<u>#ISBN</u>, <u>#idAutor</u>)
+Exemplar(<u>nºExemplar</u>, estado, localização, #ISBN)
+Empréstimo(<u>nºEmpréstimo</u>, dataEmpréstimo, dataPrevistaDevolução, dataDevolução, #nºLeitor, #nºExemplar)</pre>
+<p>O N:M Livro–Autor deu origem à tabela <em>Autoria</em>. Os relacionamentos 1:N deram origem às chaves estrangeiras <em>#ISBN</em> em Exemplar e <em>#nºLeitor</em>, <em>#nºExemplar</em> em Empréstimo.</p>
+<table>
+<tr><th colspan="3">Leitor</th></tr>
+<tr><th>nºLeitor</th><th>nome</th><th>dataInscrição</th></tr>
+<tr><td>101</td><td>Ana Reis</td><td>2025-09-15</td></tr>
+<tr><td>102</td><td>Rui Sá</td><td>2026-01-10</td></tr>
+</table>
+<table>
+<tr><th colspan="3">Autoria</th></tr>
+<tr><th>ISBN</th><th>idAutor</th><th></th></tr>
+<tr><td>9789722325400</td><td>1</td><td></td></tr>
+<tr><td>9789722325400</td><td>2</td><td></td></tr>
+</table>
+</div></details>
+</section>
+<section class="resumo"><h2>Em resumo</h2><ul><li>Cada entidade dá origem a uma tabela e cada atributo a uma coluna.</li><li>Nos relacionamentos 1:N, a chave primária do lado 1 passa para o lado N como chave estrangeira.</li><li>Os relacionamentos N:M dão origem a uma tabela associativa.</li><li>Os atributos derivados não se guardam.</li></ul></section>
+<nav class="pn" aria-label="Navegação entre temas"><a href="tema12.html"><small>Tema anterior</small>12. Modelo Entidade-Relacionamento: consolidação</a><a href="tema14.html" style="text-align:right"><small>Tema seguinte</small>14. Modelo físico: chaves primárias e candidatas</a></nav>
+</article></main></div><script>
+(function(){var m=document.querySelector('details.menu');if(m&&window.innerWidth<900){m.removeAttribute('open');}
+var a=document.querySelector('.menu a[aria-current=page]');if(a&&window.innerWidth>=900){a.scrollIntoView({block:'center'});}})();
+</script></body></html>

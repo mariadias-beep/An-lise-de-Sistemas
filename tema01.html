@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1. Introdução à análise de sistemas — Manual de Análise de Sistemas</title>
+<link rel="stylesheet" href="css/estilo.css"></head><body>
+<div class="layout"><details class="menu" open><summary><a class="marca" href="index.html">Manual de Análise de Sistemas</a></summary><nav aria-label="Temas"><h3>Fundamentos</h3><ol><li><a href="tema01.html" aria-current="page"><span class="n">1</span><span>Introdução à análise de sistemas</span></a></li><li><a href="tema02.html"><span class="n">2</span><span>Sistemas, subsistemas, ambiente e fronteiras</span></a></li><li><a href="tema03.html"><span class="n">3</span><span>Análise de sistemas e informatização</span></a></li></ol><h3>Levantamento e requisitos</h3><ol><li><a href="tema04.html"><span class="n">4</span><span>Técnicas de recolha e análise de informação</span></a></li><li><a href="tema05.html"><span class="n">5</span><span>Requisitos de sistemas de informação</span></a></li></ol><h3>Desenvolvimento de software</h3><ol><li><a href="tema06.html"><span class="n">6</span><span>Ciclo de vida do software</span></a></li><li><a href="tema07.html"><span class="n">7</span><span>Modelos de desenvolvimento de software</span></a></li></ol><h3>Modelação de dados</h3><ol><li><a href="tema08.html"><span class="n">8</span><span>Introdução à modelação de dados</span></a></li><li><a href="tema09.html"><span class="n">9</span><span>Entidades e tipos de atributos</span></a></li><li><a href="tema10.html"><span class="n">10</span><span>Relacionamentos entre entidades</span></a></li><li><a href="tema11.html"><span class="n">11</span><span>Modelo Entidade-Relacionamento</span></a></li><li><a href="tema12.html"><span class="n">12</span><span>Modelo Entidade-Relacionamento: consolidação</span></a></li><li><a href="tema13.html"><span class="n">13</span><span>Do modelo conceptual ao modelo relacional</span></a></li><li><a href="tema14.html"><span class="n">14</span><span>Modelo físico: chaves primárias e candidatas</span></a></li><li><a href="tema15.html"><span class="n">15</span><span>Chaves estrangeiras</span></a></li><li><a href="tema16.html"><span class="n">16</span><span>Integridade de dados</span></a></li></ol><h3>UML e modelação do comportamento</h3><ol><li><a href="tema17.html"><span class="n">17</span><span>Introdução à UML</span></a></li><li><a href="tema18.html"><span class="n">18</span><span>Fronteiras do sistema, atores e casos de uso</span></a></li><li><a href="tema19.html"><span class="n">19</span><span>Diagrama de casos de uso: relações</span></a></li><li><a href="tema20.html"><span class="n">20</span><span>Diagramas de Fluxo de Dados (DFD)</span></a></li><li><a href="tema21.html"><span class="n">21</span><span>DFD de nível 1</span></a></li><li><a href="tema22.html"><span class="n">22</span><span>Diagramas de atividade</span></a></li><li><a href="tema23.html"><span class="n">23</span><span>Diagramas de estados e de sequência</span></a></li></ol><h3>Implementação e projeto final</h3><ol><li><a href="tema24.html"><span class="n">24</span><span>Representação da implementação</span></a></li><li><a href="tema25.html"><span class="n">25</span><span>Integração dos modelos e apresentação do projeto</span></a></li></ol></nav></details>
+<main><article>
+<header class="cab"><p class="tema">Tema 1 · Fundamentos</p><h1>Introdução à análise de sistemas</h1><p class="sub">Conceito de sistema, sistema de informação, dados e informação</p></header>
+
+<p>Quando levantamos dinheiro num multibanco, validamos o passe num torniquete ou consultamos as notas na plataforma da escola, estamos a usar sistemas de informação. Quase nunca pensamos neles, mas alguém teve de os <strong>analisar</strong> antes de existirem: perceber o que a organização precisava, quem os ia usar e que informação tinham de produzir. Essa é a tarefa da análise de sistemas.</p>
+
+<h2>O que é um sistema</h2>
+<div class="def"><p><strong>Sistema</strong> é um conjunto de elementos que se relacionam entre si e trabalham em conjunto para atingir um objetivo comum.</p></div>
+<p>Qualquer sistema pode ser descrito por quatro ideias: o que <em>entra</em> (entradas), o que lhe acontece (processamento), o que <em>sai</em> (saídas) e a forma como os resultados ajudam a corrigir o funcionamento (realimentação, ou <em>feedback</em>).</p>
+<figure><img src="imagens/sistema.svg" alt="Esquema geral de um sistema: entradas, processamento, saídas e realimentação." loading="lazy"><figcaption>Figura 1.1 — Esquema geral de um sistema: entradas, processamento, saídas e realimentação.</figcaption></figure>
+
+<h2>Dados e informação</h2>
+<p>Os <strong>dados</strong> são factos em bruto, sem contexto, que sozinhos pouco nos dizem. A <strong>informação</strong> resulta de organizar e interpretar os dados, de modo a terem significado para quem decide.</p>
+<table>
+<tr><th>Dados</th><th>Informação</th></tr>
+<tr><td>17 · Ana · 2026-10-06 · 14,5</td><td>«A Ana, com 17 anos, obteve 14,5 valores no teste de 6 de outubro.»</td></tr>
+<tr><td>Lista de 300 vendas diárias</td><td>«As vendas de terça-feira foram 12 % superiores às da semana anterior.»</td></tr>
+</table>
+<p>Se a informação for útil, correta e chegar a tempo, ajuda a tomar decisões. Se for incompleta ou tardia, pode ser pior do que não a ter.</p>
+
+<h2>Sistema de informação</h2>
+<div class="def"><p><strong>Sistema de informação (SI)</strong> é o conjunto organizado de pessoas, procedimentos, dados, equipamento e <em>software</em> que recolhe, guarda, processa e distribui informação para apoiar as operações e as decisões de uma organização.</p></div>
+<ul>
+<li><strong>Pessoas</strong> — utilizadores, operadores, gestores.</li>
+<li><strong>Procedimentos</strong> — regras e passos a seguir (por exemplo, como se regista uma devolução).</li>
+<li><strong>Dados</strong> — o que é recolhido e guardado.</li>
+<li><strong>Hardware</strong> — computadores, leitores de código de barras, redes.</li>
+<li><strong>Software</strong> — aplicações e sistemas de gestão de bases de dados.</li>
+</ul>
+<p class="nota">Um sistema de informação não é o mesmo que um sistema informático. Um ficheiro de papel com fichas de leitores, usado segundo regras bem definidas, também é um sistema de informação, embora manual.</p>
+
+<h2>O papel do analista de sistemas</h2>
+<p>O analista faz a ponte entre o cliente, que conhece o negócio, e a equipa técnica, que constrói a solução. Ouve, questiona, documenta e representa o sistema através de modelos que ambos conseguem compreender. É esse trabalho de modelação que vamos desenvolver ao longo do manual, tendo como projeto-fio-condutor o sistema de uma <strong>biblioteca</strong>.</p>
+
+<section class="atividade"><h2>Atividade</h2><p class="at-titulo">Identificar sistemas de informação existentes no quotidiano e os seus componentes</p>
+
+<ol>
+<li>Escolha <strong>três</strong> sistemas de informação que utilize no dia a dia (por exemplo: multibanco, bilhética dos transportes, plataforma de notas da escola, caixa de supermercado, aplicação de entregas).</li>
+<li>Para cada um, preencha uma tabela com: objetivo, pessoas envolvidas, dados de entrada, processamento, informação de saída e tecnologia (hardware e software).</li>
+<li>Indique, para cada sistema, um exemplo de <strong>dados</strong> e o respetivo exemplo de <strong>informação</strong> que deles resulta.</li>
+</ol>
+
+<details class="resolucao"><summary>Ver proposta de resolução</summary><div class="dentro">
+<p>Exemplo para o <strong>multibanco (ATM)</strong>:</p>
+<table>
+<tr><th>Componente</th><th>Multibanco</th></tr>
+<tr><td>Objetivo</td><td>Permitir operações bancárias básicas sem ir ao balcão.</td></tr>
+<tr><td>Pessoas</td><td>Clientes, técnicos de manutenção, funcionários do banco.</td></tr>
+<tr><td>Dados de entrada</td><td>Cartão, PIN, operação escolhida, montante.</td></tr>
+<tr><td>Processamento</td><td>Validar PIN, verificar saldo e limite, autorizar e registar a operação.</td></tr>
+<tr><td>Informação de saída</td><td>Notas, talão, saldo atualizado, mensagem de erro.</td></tr>
+<tr><td>Hardware / software</td><td>Terminal com ecrã, teclado e dispensador; aplicação bancária ligada à rede do banco.</td></tr>
+<tr><td>Dados → informação</td><td>«1234 · 50 · 2026-10-06» → «Levantamento de 50 € realizado em 6/10/2026».</td></tr>
+</table>
+</div></details>
+</section>
+<section class="resumo"><h2>Em resumo</h2><ul><li>Um sistema tem entradas, processamento, saídas e realimentação.</li><li>Dados são factos em bruto; informação é o resultado de os organizar e interpretar.</li><li>Um sistema de informação inclui pessoas, procedimentos, dados, hardware e software.</li><li>O analista modela o sistema para que cliente e equipa técnica o entendam da mesma forma.</li></ul></section>
+<nav class="pn" aria-label="Navegação entre temas"><a href="index.html"><small>Voltar</small>Índice</a><a href="tema02.html" style="text-align:right"><small>Tema seguinte</small>2. Sistemas, subsistemas, ambiente e fronteiras</a></nav>
+</article></main></div><script>
+(function(){var m=document.querySelector('details.menu');if(m&&window.innerWidth<900){m.removeAttribute('open');}
+var a=document.querySelector('.menu a[aria-current=page]');if(a&&window.innerWidth>=900){a.scrollIntoView({block:'center'});}})();
+</script></body></html>
