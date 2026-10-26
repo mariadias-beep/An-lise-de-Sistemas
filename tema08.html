@@ -57,4 +57,250 @@
 </article></main></div><script>
 (function(){var m=document.querySelector('details.menu');if(m&&window.innerWidth<900){m.removeAttribute('open');}
 var a=document.querySelector('.menu a[aria-current=page]');if(a&&window.innerWidth>=900){a.scrollIntoView({block:'center'});}})();
-</script></body></html>
+</script>
+  <!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introdução à Modelação de Dados — Manual e Ficha</title>
+<style>
+:root{--ink:#202938;--blue:#1d4ed8;--pale:#eff6ff;--line:#cbd5e1;--green:#166534}
+*{box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;line-height:1.55;color:var(--ink);max-width:1000px;margin:0 auto;padding:24px;background:#f8fafc}
+header{background:#173b67;color:white;padding:28px;border-radius:14px;margin-bottom:22px}
+header h1{margin:0 0 8px;font-size:2rem}
+header p{margin:0}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 24px}
+nav a,.btn{background:var(--blue);color:white;text-decoration:none;border:0;border-radius:8px;padding:10px 14px;cursor:pointer;font-size:1rem}
+section,.panel{background:white;border:1px solid var(--line);border-radius:12px;padding:22px;margin:18px 0}
+h2{color:#173b67;margin-top:0;border-bottom:2px solid #dbeafe;padding-bottom:8px}
+h3{color:#1e40af;margin-bottom:6px}
+.callout{background:var(--pale);border-left:5px solid var(--blue);padding:12px 16px;margin:12px 0}
+.example{border:1px solid var(--line);border-radius:8px;padding:12px;background:#fff}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th,td{border:1px solid var(--line);padding:9px;text-align:left}
+th{background:#eaf2ff}
+.diagram{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:16px 0}
+.entity{border:2px solid #3b82f6;border-radius:10px;padding:16px;text-align:center;min-width:190px;background:#eff6ff}
+.entity.green{border-color:#16a34a;background:#f0fdf4}
+.arrow{text-align:center;font-weight:bold}
+.question{padding:14px 0;border-bottom:1px solid #e2e8f0;break-inside:avoid}
+.question:last-child{border-bottom:0}
+.question p{font-weight:bold;margin:0 0 8px}
+label.option{display:block;padding:5px 0;cursor:pointer}
+input[type=checkbox],input[type=radio]{margin-right:8px}
+.student-fields{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.student-input{border:0;border-bottom:1px solid #64748b;background:transparent;min-width:220px;padding:5px;font:inherit;color:inherit}
+.student-input.short{min-width:100px;width:110px}
+.checkcell{text-align:center}
+.checkcell input{width:17px;height:17px;cursor:pointer}
+.result{font-weight:bold;padding:12px;background:#f1f5f9;border-radius:8px;margin-top:14px}
+.checkrow{padding:10px 0;border-bottom:1px solid #e2e8f0}
+.small{font-size:.92rem;color:#475569}
+.blank{display:inline-block;min-width:180px;border-bottom:1px solid #64748b}
+footer{text-align:center;color:#64748b;font-size:.85rem;padding:18px}
+@media print{
+ body{max-width:none;background:white;padding:0;font-size:10.5pt}
+ header{background:white!important;color:#111!important;border:2px solid #173b67;border-radius:0;padding:16px}
+ nav,.no-print,.btn{display:none!important}
+ section,.panel{box-shadow:none;border:1px solid #999;border-radius:0;padding:14px;margin:10px 0;break-inside:avoid}
+ h1,h2,h3{break-after:avoid}
+ a{color:inherit;text-decoration:none}
+ .question,.checkrow{break-inside:avoid}
+ .page-break{break-before:page}
+ input[type=radio],input[type=checkbox]{appearance:auto;width:13px;height:13px;display:inline-block;vertical-align:middle}
+ .student-input{border:0;border-bottom:1px solid #333;background:white;color:#111}
+ table{font-size:9.5pt}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Introdução à Modelação de Dados</h1>
+  <p>Manual passo a passo, ficha de escolha múltipla e checklist de autoavaliação</p>
+  <p class="student-fields" style="margin-top:14px">
+  <label>Nome: <input class="student-input" type="text" name="nome_capa" aria-label="Nome do aluno"></label>
+  <label>Turma: <input class="student-input short" type="text" name="turma_capa" aria-label="Turma"></label>
+  <label>Data: <input class="student-input short" type="text" name="data_capa" placeholder="dd/mm/aaaa" aria-label="Data"></label>
+</p>
+</header>
+<nav class="no-print">
+  <a href="#materia">Estudar a matéria</a>
+  <a href="#ficha">Ficha de escolha múltipla</a>
+  <a href="#checklist">Checklist</a>
+  <button class="btn" onclick="window.print()">Imprimir / Guardar em PDF</button>
+</nav>
+
+<section id="materia">
+<h2>Parte 1 — Aprender passo a passo</h2>
+<h3>Passo 1 — Porque precisamos de modelar os dados?</h3>
+<p>Imagina que uma escola quer criar um programa para guardar os nomes dos alunos, os emails e as turmas. Antes de criar a base de dados, é necessário decidir que informação guardar e como a organizar. A este planeamento chamamos <strong>modelação de dados</strong>.</p>
+<div class="callout"><strong>Pergunta para pensar:</strong> Como conseguimos saber a que turma pertence cada aluno sem misturar toda a informação?</div>
+
+<h3>Passo 2 — Entidades</h3>
+<p>Uma <strong>entidade</strong> é algo sobre o qual queremos guardar informação: uma pessoa, um objeto ou um conceito.</p>
+<div class="example"><strong>Exemplos numa escola:</strong> ALUNO, PROFESSOR, TURMA e DISCIPLINA.<br><strong>Exemplo numa biblioteca:</strong> LIVRO e AUTOR.</div>
+
+<h3>Passo 3 — Atributos</h3>
+<p>Os <strong>atributos</strong> são as características que descrevem uma entidade. Para a entidade ALUNO, podemos guardar o número, o nome e o email.</p>
+<table><tr><th>Entidade</th><th>Atributos</th></tr>
+<tr><td>ALUNO</td><td>numero_aluno, nome, email, id_turma</td></tr>
+<tr><td>TURMA</td><td>id_turma, designacao</td></tr></table>
+<div class="callout"><strong>Não confundir:</strong> ALUNO é uma entidade; nome é um atributo.</div>
+
+<h3>Passo 4 — Tabelas, registos, campos e valores</h3>
+<p>Numa base de dados relacional, os dados são frequentemente organizados em tabelas.</p>
+<table><tr><th>numero_aluno</th><th>nome</th><th>email</th></tr>
+<tr><td>101</td><td>Ana Silva</td><td>ana@escola.pt</td></tr>
+<tr><td>102</td><td>João Costa</td><td>joao@escola.pt</td></tr>
+<tr><td>103</td><td>Sara Lopes</td><td>sara@escola.pt</td></tr></table>
+<ul>
+<li><strong>Tabela:</strong> conjunto organizado de dados.</li>
+<li><strong>Atributo/campo:</strong> coluna, por exemplo, nome.</li>
+<li><strong>Registo/tuplo:</strong> linha que contém os dados de uma ocorrência, por exemplo, os dados da Ana Silva.</li>
+<li><strong>Valor:</strong> dado específico numa célula, por exemplo, “Ana Silva”.</li>
+</ul>
+
+<h3>Passo 5 — Relacionamentos</h3>
+<p>Um <strong>relacionamento</strong> descreve a ligação entre entidades. Por exemplo, um aluno pertence a uma turma.</p>
+<div class="diagram">
+ <div class="entity"><strong>ALUNO</strong><br><small>numero_aluno, nome, id_turma</small></div>
+ <div class="arrow">— pertence a →</div>
+ <div class="entity green"><strong>TURMA</strong><br><small>id_turma, designacao</small></div>
+</div>
+<p>Neste exemplo simplificado, uma turma pode ter vários alunos e cada aluno pertence a uma turma. Esta relação é chamada <strong>um-para-muitos (1:N)</strong>.</p>
+
+<h3>Passo 6 — Chave primária (PK) e chave estrangeira (FK)</h3>
+<table><tr><th>Tabela TURMA</th><th>designacao</th></tr>
+<tr><td><strong>id_turma (PK)</strong></td><td>10.º A</td></tr>
+<tr><td>2</td><td>10.º B</td></tr></table>
+<table><tr><th>numero_aluno (PK)</th><th>nome</th><th>id_turma (FK)</th></tr>
+<tr><td>101</td><td>Ana Silva</td><td>1</td></tr>
+<tr><td>102</td><td>João Costa</td><td>1</td></tr>
+<tr><td>103</td><td>Sara Lopes</td><td>2</td></tr></table>
+<ul>
+<li><strong>PK — Chave primária:</strong> identifica de forma única cada registo da tabela.</li>
+<li><strong>FK — Chave estrangeira:</strong> campo que referencia uma chave de outra tabela e permite estabelecer a ligação.</li>
+</ul>
+<div class="callout">O id_turma é PK na tabela TURMA e FK na tabela ALUNO. Assim, o valor 1 indica que Ana Silva pertence à turma 10.º A.</div>
+
+<h3>Passo 7 — Resumo para memorizar</h3>
+<ul>
+<li><strong>Entidade:</strong> sobre o que guardamos informação.</li>
+<li><strong>Atributo:</strong> característica da entidade.</li>
+<li><strong>Registo/tuplo:</strong> linha da tabela.</li>
+<li><strong>Valor:</strong> conteúdo de uma célula.</li>
+<li><strong>Relacionamento:</strong> ligação entre entidades.</li>
+<li><strong>PK:</strong> identifica unicamente um registo.</li>
+<li><strong>FK:</strong> liga tabelas através de uma referência.</li>
+</ul>
+</section>
+
+<section id="ficha" class="page-break">
+<h2>Parte 2 — Ficha de verificação de conhecimentos</h2>
+<p><strong>Instruções:</strong> Assinala apenas uma resposta em cada pergunta. Cada pergunta vale 2 valores. Total: 20 valores.</p>
+<p class="student-fields">
+  <label>Nome: <input class="student-input" type="text" name="nome_ficha" aria-label="Nome do aluno"></label>
+  <label>Turma: <input class="student-input short" type="text" name="turma_ficha" aria-label="Turma"></label>
+  <label>Data: <input class="student-input short" type="text" name="data_ficha" placeholder="dd/mm/aaaa" aria-label="Data"></label>
+</p>
+<form id="quiz">
+<div class="question"><p>1. O que é uma entidade?</p>
+<label class="option"><input type="radio" name="q1" value="a"> a) Um dado isolado numa célula.</label>
+<label class="option"><input type="radio" name="q1" value="b"> b) Algo sobre o qual queremos guardar informação.</label>
+<label class="option"><input type="radio" name="q1" value="c"> c) Uma linha da tabela.</label></div>
+<div class="question"><p>2. Na entidade ALUNO, qual das opções é um atributo?</p>
+<label class="option"><input type="radio" name="q2" value="a"> a) nome</label>
+<label class="option"><input type="radio" name="q2" value="b"> b) A tabela inteira</label>
+<label class="option"><input type="radio" name="q2" value="c"> c) A relação entre aluno e turma</label></div>
+<div class="question"><p>3. Numa tabela, uma linha que contém os dados de um aluno é:</p>
+<label class="option"><input type="radio" name="q3" value="a"> a) Um atributo</label>
+<label class="option"><input type="radio" name="q3" value="b"> b) Um valor</label>
+<label class="option"><input type="radio" name="q3" value="c"> c) Um registo ou tuplo</label></div>
+<div class="question"><p>4. Qual é um exemplo de valor?</p>
+<label class="option"><input type="radio" name="q4" value="a"> a) A coluna nome</label>
+<label class="option"><input type="radio" name="q4" value="b"> b) Ana Silva</label>
+<label class="option"><input type="radio" name="q4" value="c"> c) A entidade ALUNO</label></div>
+<div class="question"><p>5. O que descreve um relacionamento?</p>
+<label class="option"><input type="radio" name="q5" value="a"> a) A ligação entre entidades</label>
+<label class="option"><input type="radio" name="q5" value="b"> b) O nome de uma coluna</label>
+<label class="option"><input type="radio" name="q5" value="c"> c) O conteúdo de uma célula</label></div>
+<div class="question"><p>6. No exemplo apresentado, uma turma pode ter vários alunos. A relação é:</p>
+<label class="option"><input type="radio" name="q6" value="a"> a) Muitos-para-muitos obrigatoriamente</label>
+<label class="option"><input type="radio" name="q6" value="b"> b) Um-para-muitos (1:N)</label>
+<label class="option"><input type="radio" name="q6" value="c"> c) Sem relacionamento</label></div>
+<div class="question"><p>7. Para que serve uma chave primária (PK)?</p>
+<label class="option"><input type="radio" name="q7" value="a"> a) Para identificar unicamente cada registo</label>
+<label class="option"><input type="radio" name="q7" value="b"> b) Para decorar a tabela</label>
+<label class="option"><input type="radio" name="q7" value="c"> c) Para repetir o nome de todos os alunos</label></div>
+<div class="question"><p>8. Para que serve uma chave estrangeira (FK)?</p>
+<label class="option"><input type="radio" name="q8" value="a"> a) Para apagar uma tabela</label>
+<label class="option"><input type="radio" name="q8" value="b"> b) Para substituir todos os atributos</label>
+<label class="option"><input type="radio" name="q8" value="c"> c) Para referenciar uma chave de outra tabela e estabelecer uma ligação</label></div>
+<div class="question"><p>9. Na tabela TURMA, id_turma é PK. Na tabela ALUNO, id_turma é FK. O que significa?</p>
+<label class="option"><input type="radio" name="q9" value="a"> a) Que as duas tabelas têm de ter exatamente os mesmos registos</label>
+<label class="option"><input type="radio" name="q9" value="b"> b) Que o campo da tabela ALUNO referencia a turma correspondente</label>
+<label class="option"><input type="radio" name="q9" value="c"> c) Que id_turma é o nome do aluno</label></div>
+<div class="question"><p>10. Qual é a melhor ordem para começar a construir uma base de dados?</p>
+<label class="option"><input type="radio" name="q10" value="a"> a) Começar por inserir dados sem planeamento</label>
+<label class="option"><input type="radio" name="q10" value="b"> b) Criar apenas cores e títulos</label>
+<label class="option"><input type="radio" name="q10" value="c"> c) Identificar entidades, atributos e relacionamentos</label></div>
+<div class="no-print">
+<button class="btn" type="button" onclick="corrigir()">Corrigir respostas</button>
+<button class="btn" type="button" onclick="window.print()">Imprimir / Guardar em PDF</button>
+<div id="resultado" class="result" aria-live="polite">Seleciona uma resposta em cada pergunta e clica em “Corrigir respostas”.</div>
+</div>
+</form>
+<p class="small">Na versão impressa, assinala a resposta escolhida. O cálculo automático da classificação funciona na versão digital do HTML.</p>
+</section>
+
+<section id="checklist" class="page-break">
+<h2>Parte 3 — Checklist de autoavaliação do aluno</h2>
+<p>Lê cada afirmação e assinala a opção que corresponde ao teu nível de compreensão.</p>
+<p class="student-fields">
+  <label>Nome: <input class="student-input" type="text" name="nome_checklist" aria-label="Nome do aluno na checklist"></label>
+  <label>Turma: <input class="student-input short" type="text" name="turma_checklist" aria-label="Turma na checklist"></label>
+  <label>Data: <input class="student-input short" type="text" name="data_checklist" placeholder="dd/mm/aaaa" aria-label="Data na checklist"></label>
+</p>
+<table>
+<tr><th>Consigo…</th><th>Sim</th><th>Mais ou menos</th><th>Ainda não</th></tr>
+<tr><td>Explicar por que razão é importante planear uma base de dados.</td><td class="checkcell"><input type="radio" name="check_0" value="sim" aria-label="Sim: Explicar por que razão é importante planear uma base de dados."></td><td class="checkcell"><input type="radio" name="check_0" value="mais" aria-label="Mais ou menos: Explicar por que razão é importante planear uma base de dados."></td><td class="checkcell"><input type="radio" name="check_0" value="nao" aria-label="Ainda não: Explicar por que razão é importante planear uma base de dados."></td></tr>
+<tr><td>Identificar entidades num exemplo do dia a dia.</td><td class="checkcell"><input type="radio" name="check_1" value="sim" aria-label="Sim: Identificar entidades num exemplo do dia a dia."></td><td class="checkcell"><input type="radio" name="check_1" value="mais" aria-label="Mais ou menos: Identificar entidades num exemplo do dia a dia."></td><td class="checkcell"><input type="radio" name="check_1" value="nao" aria-label="Ainda não: Identificar entidades num exemplo do dia a dia."></td></tr>
+<tr><td>Identificar atributos de uma entidade.</td><td class="checkcell"><input type="radio" name="check_2" value="sim" aria-label="Sim: Identificar atributos de uma entidade."></td><td class="checkcell"><input type="radio" name="check_2" value="mais" aria-label="Mais ou menos: Identificar atributos de uma entidade."></td><td class="checkcell"><input type="radio" name="check_2" value="nao" aria-label="Ainda não: Identificar atributos de uma entidade."></td></tr>
+<tr><td>Distinguir tabela, atributo/campo, registo/tuplo e valor.</td><td class="checkcell"><input type="radio" name="check_3" value="sim" aria-label="Sim: Distinguir tabela, atributo/campo, registo/tuplo e valor."></td><td class="checkcell"><input type="radio" name="check_3" value="mais" aria-label="Mais ou menos: Distinguir tabela, atributo/campo, registo/tuplo e valor."></td><td class="checkcell"><input type="radio" name="check_3" value="nao" aria-label="Ainda não: Distinguir tabela, atributo/campo, registo/tuplo e valor."></td></tr>
+<tr><td>Explicar o que é um relacionamento entre entidades.</td><td class="checkcell"><input type="radio" name="check_4" value="sim" aria-label="Sim: Explicar o que é um relacionamento entre entidades."></td><td class="checkcell"><input type="radio" name="check_4" value="mais" aria-label="Mais ou menos: Explicar o que é um relacionamento entre entidades."></td><td class="checkcell"><input type="radio" name="check_4" value="nao" aria-label="Ainda não: Explicar o que é um relacionamento entre entidades."></td></tr>
+<tr><td>Reconhecer uma relação um-para-muitos (1:N).</td><td class="checkcell"><input type="radio" name="check_5" value="sim" aria-label="Sim: Reconhecer uma relação um-para-muitos (1:N)."></td><td class="checkcell"><input type="radio" name="check_5" value="mais" aria-label="Mais ou menos: Reconhecer uma relação um-para-muitos (1:N)."></td><td class="checkcell"><input type="radio" name="check_5" value="nao" aria-label="Ainda não: Reconhecer uma relação um-para-muitos (1:N)."></td></tr>
+<tr><td>Explicar para que serve uma chave primária (PK).</td><td class="checkcell"><input type="radio" name="check_6" value="sim" aria-label="Sim: Explicar para que serve uma chave primária (PK)."></td><td class="checkcell"><input type="radio" name="check_6" value="mais" aria-label="Mais ou menos: Explicar para que serve uma chave primária (PK)."></td><td class="checkcell"><input type="radio" name="check_6" value="nao" aria-label="Ainda não: Explicar para que serve uma chave primária (PK)."></td></tr>
+<tr><td>Explicar para que serve uma chave estrangeira (FK).</td><td class="checkcell"><input type="radio" name="check_7" value="sim" aria-label="Sim: Explicar para que serve uma chave estrangeira (FK)."></td><td class="checkcell"><input type="radio" name="check_7" value="mais" aria-label="Mais ou menos: Explicar para que serve uma chave estrangeira (FK)."></td><td class="checkcell"><input type="radio" name="check_7" value="nao" aria-label="Ainda não: Explicar para que serve uma chave estrangeira (FK)."></td></tr>
+<tr><td>Perceber como uma chave estrangeira liga duas tabelas.</td><td class="checkcell"><input type="radio" name="check_8" value="sim" aria-label="Sim: Perceber como uma chave estrangeira liga duas tabelas."></td><td class="checkcell"><input type="radio" name="check_8" value="mais" aria-label="Mais ou menos: Perceber como uma chave estrangeira liga duas tabelas."></td><td class="checkcell"><input type="radio" name="check_8" value="nao" aria-label="Ainda não: Perceber como uma chave estrangeira liga duas tabelas."></td></tr>
+<tr><td>Dar um exemplo de duas entidades relacionadas.</td><td class="checkcell"><input type="radio" name="check_9" value="sim" aria-label="Sim: Dar um exemplo de duas entidades relacionadas."></td><td class="checkcell"><input type="radio" name="check_9" value="mais" aria-label="Mais ou menos: Dar um exemplo de duas entidades relacionadas."></td><td class="checkcell"><input type="radio" name="check_9" value="nao" aria-label="Ainda não: Dar um exemplo de duas entidades relacionadas."></td></tr>
+</table>
+<h3>Reflexão final</h3>
+<p>O ponto que compreendi melhor foi:</p>
+<p>____________________________________________________________________________</p>
+<p>O ponto que preciso de rever ou que quero perguntar ao professor é:</p>
+<p>____________________________________________________________________________</p>
+<p>Uma dúvida que ainda tenho:</p>
+<p>____________________________________________________________________________</p>
+<div class="callout"><strong>Orientação:</strong> Se assinalaste “Mais ou menos” ou “Ainda não” em algum ponto, revê essa parte do manual e pede ajuda ao professor antes de avançar.</div>
+</section>
+
+<footer>Material pedagógico — Introdução à Modelação de Dados</footer>
+<script>
+function corrigir(){
+ const respostas={q1:'b',q2:'a',q3:'c',q4:'b',q5:'a',q6:'b',q7:'a',q8:'c',q9:'b',q10:'c'};
+ let certas=0,respondidas=0;
+ for(const [q,correta] of Object.entries(respostas)){
+   const marcada=document.querySelector('input[name="'+q+'"]:checked');
+   if(marcada){respondidas++;if(marcada.value===correta)certas++;}
+ }
+ const nota=certas*2;
+ const el=document.getElementById('resultado');
+ if(respondidas<10){el.textContent='Respondeste a '+respondidas+' de 10 perguntas. Completa a ficha antes de obter a classificação.';return;}
+ el.textContent='Resultado: '+certas+'/10 respostas corretas — classificação: '+nota+'/20 valores.';
+}
+</script>
+</body>
+</html>
+</body></html>
